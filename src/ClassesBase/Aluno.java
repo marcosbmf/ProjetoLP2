@@ -1,33 +1,31 @@
 package ClassesBase;
 
+/**
+ * Classe que representa um aluno. 
+ * @author marcosbmf
+ *
+ */
 public class Aluno{
 	
 	private String nome;
-	private int matricula;
+	private String matricula;
 	private int codigoCurso;
 	private String telefone;
 	private String eMail;
-	private double avaliacao;
+	private double notaAvalicao;
 	
-	public Aluno(String nome, int matricula, int codigoCurso, String eMail) {
-		this.nome = nome;
-		this.matricula = matricula;
-		this.codigoCurso = codigoCurso;
-		this.telefone = "";
-		this.eMail = eMail;
-		this.avaliacao = 5;
-	}
-
-
-	public Aluno(String nome, int matricula, int codigoCurso, String telefone,String eMail) {
-		
+	public Aluno(String matricula, String nome, int codigoCurso, String telefone,String eMail, double notaAvaliacao) {
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
 		this.telefone = telefone;
 		this.eMail = eMail;
-		this.avaliacao = 5;
-	} 
+		this.notaAvalicao = notaAvaliacao;
+	}
+	
+	public Aluno(String matricula ,String nome, int codigoCurso, String telefone,String eMail) {
+		this(matricula, nome, codigoCurso, telefone, eMail, 5.0);
+	}
 	
 	private String contato() {
 		if(this.telefone.trim().equals("")) {
@@ -39,15 +37,29 @@ public class Aluno{
 	public String toString() {
 		return this.matricula + " - " + this.nome + " - " + this.codigoCurso + " - " + this.contato();
 	}
-	
 
+	public String getNome() {
+		return nome;
+	}
 
-	
-	
-	
-	
-	
-	
-	
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public int getCodigoCurso() {
+		return codigoCurso;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public String geteMail() {
+		return eMail;
+	}
+
+	public double getNotaAvalicao() {
+		return notaAvalicao;
+	}	
 	
 }
