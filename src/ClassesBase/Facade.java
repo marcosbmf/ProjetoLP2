@@ -24,7 +24,7 @@ public class Facade {
 		return tutorcontroller.recuperaTutor(matricula);
 	}
 	public String listarTutores() {
-		return tutorcontroller.listarTutores;
+		return tutorcontroller.listarTutores();
 	}
 	public void cadastrarHorario(String email, String horario, String dia) {
 		tutorcontroller.cadastrarHorario(email,horario,dia);
@@ -33,7 +33,7 @@ public class Facade {
 		tutorcontroller.cadastrarLocalDeAtendimento(email,local);
 	}
 	public boolean consultaHorario(String email, String horario, String dia) {
-		return tutorcontroller.consultarHorario(email,horario,dia);
+		return tutorcontroller.consultaHorario(email,horario,dia);
 	}
 	public boolean consultaLocal(String email, String local) {
 		return tutorcontroller.consultaLocal(email,local);

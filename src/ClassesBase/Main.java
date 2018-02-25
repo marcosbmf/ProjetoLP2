@@ -1,12 +1,13 @@
 package ClassesBase;
 
+import easyaccept.EasyAccept;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Aluno al = new Aluno("nome",123 , 88080,"minhapica");
-		Aluno al1  = new Aluno("nome",321, 888, "minhapica");
-		System.out.println(al.toString());
-		System.out.println(al1.toString());
+		args = new String[] { "ClassesBase.Facade", "acceptance_test/us1_test.txt","acceptance_test/us2_test.txt","acceptance_test/us3_test.txt" };
+
+		EasyAccept.main(args);
 
 	}
 	
