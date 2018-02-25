@@ -18,7 +18,7 @@ public class Agenda {
 
 	public void cadastrarHorario(String horario, String dia) {
 
-		LocalTime hora = this.coverteLocalTime(horario);
+		LocalTime hora = this.converteLocalTime(horario);
 
 		if (this.horarios.containsKey(dia)) {
 			this.horarios.get(dia).add(hora);
@@ -30,7 +30,7 @@ public class Agenda {
 
 	}
 
-	private LocalTime coverteLocalTime(String horario) {
+	private LocalTime converteLocalTime(String horario) {
 		String horaMin[] = new String[2];
 		horaMin = horario.split(":");
 		return LocalTime.of(Integer.valueOf(horaMin[0]), Integer.valueOf(horaMin[0]));
@@ -41,7 +41,7 @@ public class Agenda {
 	}
 
 	public boolean consultaHorario(String horario, String dia) {
-		if (this.horarios.get(dia).contains(this.coverteLocalTime(horario))) {
+		if (this.horarios.get(dia).contains(this.converteLocalTime(horario))) {
 			return true;
 		} else {
 			return false;
