@@ -12,10 +12,10 @@ public class Facade {
 		return alunocontroller.recuperaAluno(matricula);
 	}
 	public String listarAlunos() {
-		return alunocontroller.listarAlunos;
+		return alunocontroller.listarAlunos();
 	}
 	public String getInfoAluno(String matricula, String atributo) {
-		return alunocontroller.getInfoAluno(matricula,atributo);
+		return alunocontroller.getinfoAluno(matricula,atributo);
 	}
 	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
 		tutorcontroller.tornarTutor(matricula,disciplina,proficiencia);
