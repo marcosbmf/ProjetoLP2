@@ -11,7 +11,15 @@ public class TutorController {
 	private Map<String, Tutor> tutores = new HashMap<String, Tutor>();
 
 	public Tutor tornarTutor(String nome, String matricula, int codigoCurso, String telefone,
-			String email, double notaAvaliacao, String disciplina, int proficiencia) {
+		String email, double notaAvaliacao, String disciplina, int proficiencia) {
+		
+		if(this.tutores.containsKey(matricula) && this.tutores.get(matricula).getDisciplina().trim().equals(disciplina)) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Ja eh tutor dessa disciplina");
+		}
+		else if (proficiencia < 0) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Proficiencia invalida");
+		}
+
 		
 		Tutor novoTutor = new Tutor(nome, matricula, codigoCurso, telefone, email, notaAvaliacao, disciplina, proficiencia);
 		
@@ -21,6 +29,9 @@ public class TutorController {
 	}
 	
 	public String recuperaTutor(String matricula) {
+		if(!this.tutores.containsKey(matricula)) {
+			throw new IllegalArgumentException("Erro na busca por tutor: Tutor nao encontrado");
+		}
 		return tutores.get(matricula).toString();
 	}
 	
@@ -59,14 +70,18 @@ public class TutorController {
 	
 	private String procuraTutor(String email) {
 		String matricula = "";
+		boolean existe = true;
 		for (String key : tutores.keySet()) {
 			if(tutores.get(key).geteMail() == email) {
 				matricula = tutores.get(key).getMatricula();
+				existe = false;
 			}
-					
 		}
+		
 		return matricula;
 	}
+	
+	
 	
 
 }
