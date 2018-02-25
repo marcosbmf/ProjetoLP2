@@ -1,5 +1,8 @@
 package ClassesBase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Classe que representa um aluno. 
  * 
@@ -18,6 +21,11 @@ public class Aluno implements Comparable<Aluno>{
 	private double notaAvalicao;
 	
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao) {
+		if (nome.trim().equals("") || nome == null) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
+		} else if (eMail.trim().equals("") || eMail == null) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
+		}
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
