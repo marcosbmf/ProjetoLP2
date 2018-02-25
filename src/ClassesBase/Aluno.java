@@ -2,10 +2,13 @@ package ClassesBase;
 
 /**
  * Classe que representa um aluno. 
+ * 
+ * Além das informações do aluno, é possível mudar sua avaliação e ele se compara com outros pela ordem alfabética do nome.
+ * 
  * @author marcosbmf
  *
  */
-public class Aluno{
+public class Aluno implements Comparable<Aluno>{
 	
 	private String nome;
 	private String matricula;
@@ -14,7 +17,7 @@ public class Aluno{
 	private String eMail;
 	private double notaAvalicao;
 	
-	public Aluno(String matricula, String nome, int codigoCurso, String telefone,String eMail, double notaAvaliacao) {
+	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao) {
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
@@ -23,8 +26,8 @@ public class Aluno{
 		this.notaAvalicao = notaAvaliacao;
 	}
 	
-	public Aluno(String matricula ,String nome, int codigoCurso, String telefone,String eMail) {
-		this(matricula, nome, codigoCurso, telefone, eMail, 5.0);
+	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
+		this(matricula, nome, codigoCurso, telefone, email, 5.0);
 	}
 	
 	private String contato() {
@@ -61,5 +64,13 @@ public class Aluno{
 	public double getNotaAvalicao() {
 		return notaAvalicao;
 	}	
+	
+	public void mudaAvaliacao(double novaAvaliacao) {
+		this.notaAvalicao = novaAvaliacao;
+	}
+	
+	public int compareTo(Aluno o) {
+		return this.nome.compareTo(o.nome);
+	}
 	
 }
