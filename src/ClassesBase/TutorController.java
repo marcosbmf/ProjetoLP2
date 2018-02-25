@@ -75,16 +75,13 @@ public class TutorController {
 
 	
 	private String procuraTutor(String email) {
-		String matricula = "";
-		boolean existe = true;
-		for (String key : tutores.keySet()) {
-			if(tutores.get(key).geteMail() == email) {
-				matricula = tutores.get(key).getMatricula();
-				existe = false;
+		for (String matricula: this.tutores.keySet()) {
+			Tutor tutor = this.tutores.get(matricula);
+			if (tutor.geteMail().equals(email)) {
+				return matricula;
 			}
 		}
-		
-		return matricula;
+		return "";
 	}
 	
 	

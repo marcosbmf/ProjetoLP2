@@ -62,8 +62,4 @@ public class Sistema {
 		tc.pagarTutor(matricula, quantidade);
 	}
 
-	public void mudaAvaliacao(String matricula, double nota) {
-		tc.mudaAvaliacao(matricula, nota);
-	}
-
 }
