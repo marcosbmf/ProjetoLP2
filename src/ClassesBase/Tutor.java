@@ -1,8 +1,10 @@
 package ClassesBase;
 
+import java.util.ArrayList;
+
 public class Tutor extends Aluno{
 	
-	private String disciplina;
+	private ArrayList<Disciplina> disciplinas;
 	private int proficiencia;
 	private double notaAvaliacao;
 	private int dinheiroRecebido;
@@ -11,18 +13,30 @@ public class Tutor extends Aluno{
 	
 	public Tutor(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao, String disciplina, int proficiencia) {
 		super(nome, matricula, codigoCurso, telefone, eMail, notaAvaliacao);
-		this.disciplina = disciplina;
-		this.proficiencia = proficiencia;
+		this.disciplinas = new ArrayList<>();
+		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 		this.notaAvaliacao = 4.0;
 		this.dinheiroRecebido = 0;
 		this.agenda = new Agenda();
 	}
 
 
-	public String getDisciplina() {
-		return disciplina;
+	public ArrayList<Disciplina> getDisciplina() {
+		return disciplinas;
+	}
+	
+	public boolean consultaDisciplina(String nome) {
+		for(Disciplina disciplina : disciplinas) {
+			if(disciplina.getNome().equals(nome)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
+	public void adicionaDisciplina(String disciplina, int proficiencia) {
+		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
+	}
 
 	public int getProficiencia() {
 		return proficiencia;

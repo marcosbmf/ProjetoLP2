@@ -12,20 +12,26 @@ public class TutorController {
 
 	public Tutor tornarTutor(String nome, String matricula, int codigoCurso, String telefone,
 		String email, double notaAvaliacao, String disciplina, int proficiencia) {
-		
-		if(this.tutores.containsKey(matricula) && this.tutores.get(matricula).getDisciplina().trim().equals(disciplina)) {
-			throw new IllegalArgumentException("Erro na definicao de papel: Ja eh tutor dessa disciplina");
-		}
-		else if (proficiencia < 0) {
+
+		if (proficiencia < 0) {
 			throw new IllegalArgumentException("Erro na definicao de papel: Proficiencia invalida");
 		}
-
 		
-		Tutor novoTutor = new Tutor(nome, matricula, codigoCurso, telefone, email, notaAvaliacao, disciplina, proficiencia);
+		if(this.tutores.containsKey(matricula)) {
+			if(this.tutores.get(matricula).consultaDisciplina(disciplina)) {
+				throw new IllegalArgumentException("Erro na definicao de papel: Ja eh tutor dessa disciplina");
+			} else {
+				this.tutores.get(matricula).adicionaDisciplina(disciplina, proficiencia);
+				return tutores.get(matricula);
+			}
+		} else {
 		
-		tutores.put(matricula, novoTutor);
+			Tutor novoTutor = new Tutor(nome, matricula, codigoCurso, telefone, email, notaAvaliacao, disciplina, proficiencia);
 		
-		return novoTutor;
+			tutores.put(matricula, novoTutor);
+		
+			return novoTutor;
+		}
 	}
 	
 	public String recuperaTutor(String matricula) {
