@@ -22,9 +22,9 @@ public class Sistema {
 	}
 
 	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
-		Tutor tutor = tc.tornarTutor(ac.getinfoAluno(matricula, "nome"), matricula,
-				Integer.parseInt(ac.getinfoAluno(matricula, "codigoCurso")), ac.getinfoAluno(matricula, "telefone"),
-				ac.getinfoAluno(matricula, "email"), Double.parseDouble(ac.getinfoAluno(matricula, "avalicao")),
+		Tutor tutor = tc.tornarTutor(ac.getinfoAluno(matricula, "Nome"), matricula,
+				Integer.parseInt(ac.getinfoAluno(matricula, "CodigoCurso")), ac.getinfoAluno(matricula, "Telefone"),
+				ac.getinfoAluno(matricula, "Email"), Double.parseDouble(ac.getinfoAluno(matricula, "Avalicao")),
 				disciplina, proficiencia);
 	}
 

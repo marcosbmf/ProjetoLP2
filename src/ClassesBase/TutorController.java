@@ -26,14 +26,14 @@ public class TutorController {
 	
 	public String listarTutores()  {
 
-		List<Tutor> tutores =  (List<Tutor>) this.tutores.values() ;
-		String aux = "" ;
+		List<Tutor> tutores = new ArrayList<Tutor>();
+		tutores.addAll(this.tutores.values());
 		Collections.sort(tutores);
-		for(Tutor tutor : tutores) {
-			aux += tutor.toString() + System.lineSeparator() ;
-		}		
-		return aux;
-		
+		String aux = "" ;
+		for( Tutor tutor : tutores) {
+			aux += tutor.toString() + ", " ;
+		}
+		return aux.substring(0, aux.length()-2) ; 
 	}
 	
 	public void cadastrarHorario(String email, String horario, String dia) {
