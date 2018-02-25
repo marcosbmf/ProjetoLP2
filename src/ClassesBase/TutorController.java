@@ -13,8 +13,7 @@ public class TutorController {
 	public Tutor tornarTutor(String nome, String matricula, int codigoCurso, String telefone,
 			String email, double notaAvaliacao, String disciplina, int proficiencia) {
 		
-		Tutor novoTutor = new Tutor(matricula, nome, codigoCurso, telefone, 
-				email, notaAvaliacao, disciplina, proficiencia);
+		Tutor novoTutor = new Tutor(nome, matricula, codigoCurso, telefone, email, notaAvaliacao, disciplina, proficiencia);
 		
 		tutores.put(matricula, novoTutor);
 		

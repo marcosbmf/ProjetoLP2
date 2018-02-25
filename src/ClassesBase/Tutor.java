@@ -9,8 +9,8 @@ public class Tutor extends Aluno{
 	private Agenda agenda;
 
 	
-	public Tutor(String matricula, String nome, int codigoCurso, String telefone, String eMail, double notaAvaliacao, String disciplina, int proficiencia) {
-		super(matricula, nome, codigoCurso, telefone, eMail, notaAvaliacao);
+	public Tutor(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao, String disciplina, int proficiencia) {
+		super(nome, matricula, codigoCurso, telefone, eMail, notaAvaliacao);
 		this.disciplina = disciplina;
 		this.proficiencia = proficiencia;
 		this.notaAvaliacao = 4.0;
