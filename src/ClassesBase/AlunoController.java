@@ -48,10 +48,17 @@ public class AlunoController {
 			default:
 				throw new IllegalArgumentException();
 			
+			}
+			
 	}
-			
-			
-			
 	
-}
+	public Aluno getAluno(String matricula) {
+		return this.alunos.get(matricula) ;
+	}
+	
+	public void setAluno(String matricula , Aluno aluno) {
+		this.alunos.remove(matricula);
+		this.alunos.put(matricula, aluno) ; 
+	}
+	
 }
