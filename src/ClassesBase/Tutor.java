@@ -15,6 +15,7 @@ public class Tutor extends Aluno{
 		this.proficiencia = proficiencia;
 		this.notaAvaliacao = 4.0;
 		this.dinheiroRecebido = 0;
+		this.agenda = new Agenda();
 	}
 
 
