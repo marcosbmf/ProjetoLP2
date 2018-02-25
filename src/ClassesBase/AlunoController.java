@@ -19,6 +19,9 @@ public class AlunoController {
 	}
 	
 	public String recuperaAluno(String matricula) {
+		if(!this.alunos.containsKey(matricula)) {
+			throw new IllegalArgumentException("Erro na busca por aluno: Aluno nao encontrado");
+		}
 		return alunos.get(matricula).toString() ;
 	}
 	
@@ -34,6 +37,10 @@ public class AlunoController {
 	}
 	
 	public String getinfoAluno(String matricula, String atributo) {
+		if(!this.alunos.containsKey(matricula)) {
+			throw new IllegalArgumentException("Erro na obtencao de informacao de aluno: Aluno nao encontrado");
+		}
+		
 			switch(atributo) {
 			case "Nome": 
 				return this.alunos.get(matricula).getNome();
