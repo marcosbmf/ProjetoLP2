@@ -1,42 +1,64 @@
 package ClassesBase;
 
 public class Sistema {
-	
-	AlunoController alunocontroller = new AlunoController();
-	TutorController tutorcontroller = new TutorController();
-	
+
+	AlunoController ac = new AlunoController();
+	TutorController tc = new TutorController();
+
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		alunocontroller.cadastrarAluno(nome,matricula,codigoCurso,telefone,email);
+		ac.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
 	}
+
 	public String recuperaAluno(String matricula) {
-		return alunocontroller.recuperaAluno(matricula);
+		return ac.recuperaAluno(matricula);
 	}
+
 	public String listarAlunos() {
-		return alunocontroller.listarAlunos();
+		return ac.listarAlunos();
 	}
+
 	public String getInfoAluno(String matricula, String atributo) {
-		return alunocontroller.getinfoAluno(matricula,atributo);
+		return ac.getinfoAluno(matricula, atributo);
 	}
-	public void tornarTutor(Aluno matricula, String disciplina, int proficiencia) {
-		tutorcontroller.tornarTutor(alunocontroller.getAluno(),disciplina,proficiencia);
+
+	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
+		Aluno tutor = tc.tornarTutor(ac.getinfoAluno(matricula, "nome"), matricula,
+				Integer.parseInt(ac.getinfoAluno(matricula, "codigoCurso")), ac.getinfoAluno(matricula, "telefone"),
+				ac.getinfoAluno(matricula, "email"), Double.parseDouble(ac.getinfoAluno(matricula, "avalicao")),
+				disciplina, proficiencia);
+		ac.setAluno(matricula, tutor);
 	}
+
 	public String recuperaTutor(String matricula) {
-		return tutorcontroller.recuperaTutor(matricula);
+		return tc.recuperaTutor(matricula);
 	}
+
 	public String listarTutores() {
-		return tutorcontroller.listarTutores();
+		return tc.listarTutores();
 	}
+
 	public void cadastrarHorario(String email, String horario, String dia) {
-		tutorcontroller.cadastrarHorario(email,horario,dia);
+		tc.cadastrarHorario(email, horario, dia);
 	}
+
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		tutorcontroller.cadastrarLocalDeAtendimento(email,local);
+		tc.cadastrarLocalDeAtendimento(email, local);
 	}
+
 	public boolean consultaHorario(String email, String horario, String dia) {
-		return tutorcontroller.consultaHorario(email,horario,dia);
+		return tc.consultaHorario(email, horario, dia);
 	}
+
 	public boolean consultaLocal(String email, String local) {
-		return tutorcontroller.consultaLocal(email,local);
+		return tc.consultaLocal(email, local);
 	}
-	
+
+	public void pagarTutor(String matricula, int quantidade) {
+		tc.pagarTutor(matricula, quantidade);
+	}
+
+	public void mudaAvaliacao(String matricula, double nota) {
+		tc.mudaAvaliacao(matricula, nota);
+	}
+
 }
