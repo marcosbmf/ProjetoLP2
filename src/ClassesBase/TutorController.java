@@ -1,16 +1,21 @@
 package ClassesBase;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 
 public class TutorController {
 	
 	private Map<String, Tutor> tutores = new HashMap<String, Tutor>();
 	
 
-	public void tornarTutor(String matricula, String nome, int codigoCurso, String telefone, String eMail, double notaAvaliacao, String disciplina, int proficiencia) {
-		Tutor novoTutor = new Tutor(matricula, nome, codigoCurso, telefone, eMail, notaAvaliacao, disciplina, proficiencia);
-		tutores.put(matricula, novoTutor);
+	public void tornarTutor(Aluno aluno, String disciplina, int proficiencia) {
+		Tutor novoTutor = new Tutor(aluno.getMatricula(), aluno.getNome(), aluno.getCodigoCurso(), aluno.getTelefone(), aluno.geteMail(), aluno.getNotaAvalicao(), disciplina, proficiencia);
+		
+		tutores.put(aluno.getMatricula(), novoTutor);
 		
 	}
 	
@@ -19,9 +24,16 @@ public class TutorController {
 	} 
 	
 	public String listarTutores()  {
-		String aux = "";
 		
-		return "";
+		List<Tutor> tutores =  (List<Tutor>) this.tutores.values() ;
+		String aux = "" ;
+		
+		//Collections.sort((List<T>) tutores);
+		for( Aluno aluno : tutores) {
+			aux += tutores.toString() + System.lineSeparator() ;
+		}
+		
+		return aux ; 
 	}
 	
 	public void cadastrarHorario(String email, String horario, String dia)  {
