@@ -26,6 +26,7 @@ public class Sistema {
 				Integer.parseInt(ac.getinfoAluno(matricula, "CodigoCurso")), ac.getinfoAluno(matricula, "Telefone"),
 				ac.getinfoAluno(matricula, "Email"), Double.parseDouble(ac.getinfoAluno(matricula, "Avalicao")),
 				disciplina, proficiencia);
+		ac.setAluno(matricula, tutor);
 	}
 
 	public String recuperaTutor(String matricula) {
