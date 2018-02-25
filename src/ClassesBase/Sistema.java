@@ -22,6 +22,11 @@ public class Sistema {
 	}
 
 	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
+		try {
+			this.ac.recuperaAluno(matricula);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Tutor nao encontrado");
+		}
 		Tutor tutor = tc.tornarTutor(ac.getinfoAluno(matricula, "Nome"), matricula,
 				Integer.parseInt(ac.getinfoAluno(matricula, "CodigoCurso")), ac.getinfoAluno(matricula, "Telefone"),
 				ac.getinfoAluno(matricula, "Email"), Double.parseDouble(ac.getinfoAluno(matricula, "Avaliacao")),
