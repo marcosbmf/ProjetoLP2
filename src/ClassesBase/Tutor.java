@@ -6,6 +6,7 @@ public class Tutor extends Aluno{
 	private int proficiencia;
 	private double notaAvaliacao;
 	private int dinheiroRecebido;
+	private Agenda agenda;
 
 	
 	public Tutor(String matricula, String nome, int codigoCurso, String telefone, String eMail, double notaAvaliacao, String disciplina, int proficiencia) {
@@ -30,9 +31,35 @@ public class Tutor extends Aluno{
 	public double getNotaAvaliacao() {
 		return notaAvaliacao;
 	}
+	
+	public void mudaAvaliacao(double avaliacao) {
+		this.notaAvaliacao = avaliacao;
+	}
 
 
 	public int getDinheiroRecebido() {
 		return dinheiroRecebido;
 	}		
+	
+	public void recebeDinheiro(int quantidade) {
+		this.dinheiroRecebido += quantidade;
+	}
+	
+	public void cadastrarHorario(String horario, String dia) {
+		this.agenda.cadastrarHorario(horario, dia);
+	}
+	
+	public void cadastrarLocalDeAtendimento(String local) {
+		this.agenda.cadastrarLocalDeAtendimento(local);
+	}
+	
+	public boolean consultaHorario(String horario, String dia) {
+		return this.agenda.consultaHorario(horario, dia);
+	}
+	
+	public boolean consultaLocal(String local) {
+		return this.agenda.consultaLocal(local);
+	}
+	
+	
 }
