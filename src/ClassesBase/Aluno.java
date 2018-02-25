@@ -27,7 +27,7 @@ public class Aluno implements Comparable<Aluno>{
 	}
 	
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		this(matricula, nome, codigoCurso, telefone, email, 5.0);
+		this(nome, matricula, codigoCurso, telefone, email, 5.0);
 	}
 	
 	private String contato() {
