@@ -67,7 +67,6 @@ public class Aluno implements Comparable<Aluno>{
 	
 	
 	
-	
 	public void mudaAvaliacao(double novaAvaliacao) {
 		this.notaAvalicao = novaAvaliacao;
 	}
