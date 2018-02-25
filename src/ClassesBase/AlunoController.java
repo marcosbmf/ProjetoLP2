@@ -32,17 +32,17 @@ public class AlunoController {
 	
 	public String   getinfoAluno(String matricula, String atributo) {
 			switch(atributo) {
-			case "nome": 
+			case "Nome": 
 				return this.alunos.get(matricula).getNome();
 			
-			case "telefone":
+			case "Telefone":
 				return this.alunos.get(matricula).getTelefone();
 			
-			case "codigoCurso":
+			case "CodigoCurso":
 				return "" +  this.alunos.get(matricula).getCodigoCurso();
-			case "email":
+			case "Email":
 				return this.alunos.get(matricula).geteMail();
-			case"avaliacao":
+			case"Avaliacao":
 				return ""  +  this.alunos.get(matricula).getNotaAvalicao();
 			
 			default:
