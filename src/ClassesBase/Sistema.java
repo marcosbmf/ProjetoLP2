@@ -1,6 +1,6 @@
 package ClassesBase;
 
-public class Facade {
+public class Sistema {
 	
 	AlunoController alunocontroller = new AlunoController();
 	TutorController tutorcontroller = new TutorController();
@@ -17,8 +17,8 @@ public class Facade {
 	public String getInfoAluno(String matricula, String atributo) {
 		return alunocontroller.getinfoAluno(matricula,atributo);
 	}
-	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
-		tutorcontroller.tornarTutor(matricula,disciplina,proficiencia);
+	public void tornarTutor(Aluno matricula, String disciplina, int proficiencia) {
+		tutorcontroller.tornarTutor(alunocontroller.getAluno(),disciplina,proficiencia);
 	}
 	public String recuperaTutor(String matricula) {
 		return tutorcontroller.recuperaTutor(matricula);
