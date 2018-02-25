@@ -60,6 +60,9 @@ public class Aluno{
 
 	public double getNotaAvalicao() {
 		return notaAvalicao;
-	}	
+	}
+	
+	
+	
 	
 }
