@@ -54,14 +54,29 @@ public class TutorController {
 	}
 	
 	public void cadastrarHorario(String email, String horario, String dia) {
+		if (vaziaOuNula(email)) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: email nao pode ser vazio ou em branco");
+		}
+		if (procuraTutor(email).equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: tutor nao cadastrado");
+		}
 		this.tutores.get(procuraTutor(email)).cadastrarHorario(horario, dia);
 	}
 	
 	public void cadastrarLocalDeAtendimento(String email, String local)  {
+		if (vaziaOuNula(local)) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: local nao pode ser vazio ou em branco");
+		}
+		if (procuraTutor(email).equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: tutor nao cadastrado");
+		}
 		this.tutores.get(procuraTutor(email)).cadastrarLocalDeAtendimento(local);
 	}
 	
 	public boolean consultaHorario(String email, String horario, String dia) {
+		if (vaziaOuNula(email)) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: email nao pode ser vazio ou em branco");
+		}
 		if (procuraTutor(email).equals("")) {
 			return false;
 		}
@@ -90,6 +105,12 @@ public class TutorController {
 		return "";
 	}
 	
+	private boolean vaziaOuNula(String texto) {
+		if (texto.trim().equals("") || texto == null) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 
