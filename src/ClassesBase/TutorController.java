@@ -67,6 +67,9 @@ public class TutorController {
 		if (vaziaOuNula(local)) {
 			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: local nao pode ser vazio ou em branco");
 		}
+		if (vaziaOuNula(email)) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: email nao pode ser vazio ou em branco");
+		}
 		if (procuraTutor(email).equals("")) {
 			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: tutor nao cadastrado");
 		}
