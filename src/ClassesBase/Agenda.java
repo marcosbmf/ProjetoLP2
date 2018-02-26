@@ -8,14 +8,22 @@ import java.util.Map;
 
 /***
  * 
- * @author cyberia
- *
+ * @author Thyago Pereira da Silva - 117110164 Classe responsável pela
+ *         representação de uma agenda com disponibilidade de horarios , locais
+ *         e dias para tutoria .
  */
 public class Agenda {
 
 	private List<String> locais = new ArrayList<String>();
 	private Map<String, ArrayList<LocalTime>> horarios = new HashMap<String, ArrayList<LocalTime>>();
 
+	/**
+	 * Metodo responsável por cadastrar um dia da semana e um horario para a
+	 * tutoria.
+	 * 
+	 * @param horario
+	 * @param dia
+	 */
 	public void cadastrarHorario(String horario, String dia) {
 		if (horario.trim().equals("")) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: horario nao pode ser vazio ou em branco");
@@ -36,12 +44,24 @@ public class Agenda {
 
 	}
 
+	/**
+	 * Metodo responsável por converter uma String representado um horario no
+	 * formato HH:MM para um objeto LocalTime da API de java 8
+	 * 
+	 * @param horario
+	 * @return Objeto LocalTime associado ao tempo descrito em Horario .
+	 */
 	private LocalTime converteLocalTime(String horario) {
 		String horaMin[] = new String[2];
 		horaMin = horario.split(":");
 		return LocalTime.of(Integer.valueOf(horaMin[0]), Integer.valueOf(horaMin[0]));
 	}
-
+	
+	
+	/**
+	 * Metodo responsável por cadastrar um local para ocorrencia da tutoria .
+	 * @param local
+	 */
 	public void cadastrarLocalDeAtendimento(String local) {
 		if (local.trim().equals("")) {
 			throw new IllegalArgumentException(
@@ -49,7 +69,14 @@ public class Agenda {
 		}
 		this.locais.add(local);
 	}
-
+	
+	
+	/**
+	 * Metodo responsável por verificar se um determinado  horario de um dia é disponivel para  a tutoria .
+	 * @param horario
+	 * @param dia
+	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora 
+	 */
 	public boolean consultaHorario(String horario, String dia) {
 		if (!this.horarios.containsKey(dia)) {
 			return false;
@@ -60,7 +87,12 @@ public class Agenda {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Metodo responsável por verificar se um determinado local está cadastrado no tutor para a tutoria 
+	 * @param local
+	 * @return Boolean afirmando disponibilidade de tutoria no local 
+	 */
 	public boolean consultaLocal(String local) {
 		if (local.trim().equals("")) {
 			throw new IllegalArgumentException(
