@@ -1,12 +1,10 @@
-package Testes;
+package ClassesBase;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import ClassesBase.Aluno;
 
 public class AlunoController {
 	private Map<String, Aluno> alunos = new HashMap<String, Aluno>();

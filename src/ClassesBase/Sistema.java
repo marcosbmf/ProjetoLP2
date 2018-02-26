@@ -1,8 +1,5 @@
 package ClassesBase;
 
-import Testes.AlunoController;
-import Testes.TutorController;
-
 public class Sistema {
 
 	AlunoController ac = new AlunoController();

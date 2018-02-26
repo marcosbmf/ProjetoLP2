@@ -8,7 +8,7 @@ package ClassesBase;
 public class Disciplina {
 	private String nome;
 	private int proficiencia;
-	
+
 	public Disciplina(String nome, int proficiencia) {
 		this.nome = nome;
 		this.proficiencia = proficiencia;
