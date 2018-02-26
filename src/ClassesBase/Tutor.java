@@ -2,6 +2,11 @@ package ClassesBase;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Marcos Barros
+ *
+ */
 public class Tutor extends Aluno {
 
 	private ArrayList<Disciplina> disciplinas;

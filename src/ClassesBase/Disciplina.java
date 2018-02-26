@@ -1,5 +1,10 @@
 package ClassesBase;
 
+/**
+ * 
+ * @author Marcos Barros
+ *
+ */
 public class Disciplina {
 	private String nome;
 	private int proficiencia;

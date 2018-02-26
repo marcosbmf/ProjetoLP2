@@ -1,8 +1,12 @@
-package ClassesBase;
+package Testes;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import ClassesBase.Facade;
+import ClassesBase.Sistema;
+import ClassesBase.Tutor;
 
 public class AgendaTest {
 
