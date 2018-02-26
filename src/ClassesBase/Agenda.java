@@ -17,6 +17,13 @@ public class Agenda {
 	private Map<String, ArrayList<LocalTime>> horarios = new HashMap<String, ArrayList<LocalTime>>();
 
 	public void cadastrarHorario(String horario, String dia) {
+		if(horario.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: horario nao pode ser vazio ou em branco");
+		}
+		if(dia.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: dia nao pode ser vazio ou em branco");
+		}
+		
 
 		LocalTime hora = this.converteLocalTime(horario);
 
@@ -37,6 +44,9 @@ public class Agenda {
 	}
 
 	public void cadastrarLocalDeAtendimento(String local) {
+		if(local.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: local nao pode ser vazio ou em branco");
+		}
 		this.locais.add(local);
 	}
 
@@ -52,6 +62,10 @@ public class Agenda {
 	}
 
 	public boolean consultaLocal(String local) {
+		if(local.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no consultar local de atendimento: local nao pode ser vazio ou em branco");
+		}
+		
 		if (this.locais.contains(local)) {
 			return true;
 		} else {
