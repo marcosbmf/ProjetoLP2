@@ -62,11 +62,17 @@ public class TutorController {
 	}
 	
 	public boolean consultaHorario(String email, String horario, String dia) {
+		if (procuraTutor(email).equals("")) {
+			return false;
+		}
 		return this.tutores.get(procuraTutor(email)).consultaHorario(horario, dia);
 	}
 	
 	public boolean consultaLocal(String email, String local)  {
-		return 	this.tutores.get(procuraTutor(email)).consultaLocal(local);
+		if (procuraTutor(email).equals("")) {
+			return false;
+		}
+		return this.tutores.get(procuraTutor(email)).consultaLocal(local);
 	}
 	
 	public void pagarTutor(String matricula, int quantidade) {
