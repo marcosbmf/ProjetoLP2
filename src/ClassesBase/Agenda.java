@@ -41,6 +41,9 @@ public class Agenda {
 	}
 
 	public boolean consultaHorario(String horario, String dia) {
+		if(!this.horarios.containsKey(dia)) {
+			return false;
+		}
 		if (this.horarios.get(dia).contains(this.converteLocalTime(horario))) {
 			return true;
 		} else {
