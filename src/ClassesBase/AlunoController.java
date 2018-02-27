@@ -8,15 +8,15 @@ import java.util.Map;
 
 /**
  * 
- * @author Thyago Pereira da Silva - 117110164 Classe responsável por controlar
- *         as funções relativas a aluno - AlunoCOntroller
+ * @author Thyago Pereira da Silva - 117110164 Classe responsavel por controlar
+ *         as funcoes relativas a aluno - AlunoController
  *
  */
 public class AlunoController {
 	private Map<String, Aluno> alunos = new HashMap<String, Aluno>();
 
 	/**
-	 * Metodo responsável por cadastrar um aluno no sistema.
+	 * Metodo responsavel por cadastrar um aluno no sistema.
 	 * 
 	 * @param nome
 	 * @param matricula
@@ -37,11 +37,11 @@ public class AlunoController {
 	}
 
 	/**
-	 * Metodo responsável por verificar se o email fornecido é valido no formado
+	 * Metodo responsavel por verificar se o email fornecido eh valido no formato
 	 * XXXXX.XXXXX@#########
 	 * 
 	 * @param email
-	 * @return Boolean afirmando a se o email fornecido é valido
+	 * @return Boolean afirmando a se o email fornecido eh valido
 	 */
 	private boolean emailValido(String email) {
 		if (email.trim().equals("")) {
@@ -73,10 +73,10 @@ public class AlunoController {
 	}
 
 	/**
-	 * Metodo responsável por recuperar um aluno por meio da matricula na coleção.
+	 * Metodo responsavel por recuperar um aluno por meio da matricula na colecaoo.
 	 * 
 	 * @param matricula
-	 * @return Representação em String de um determinado aluno por meio de sua
+	 * @return Representacao em String de um determinado aluno por meio de sua
 	 *         matricula .
 	 */
 	public String recuperaAluno(String matricula) {
@@ -88,7 +88,7 @@ public class AlunoController {
 
 	/**
 	 * 
-	 * @return String contendo a representação de todos os alunos cadastrados .
+	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarAlunos() {
 		List<Aluno> alunos = new ArrayList<Aluno>();
@@ -102,11 +102,11 @@ public class AlunoController {
 	}
 
 	/**
-	 * Recupera a informação solicitada do aluno , por meio da matricula
+	 * Recupera a informacaoo solicitada do aluno , por meio da matricula
 	 * 
 	 * @param matricula
 	 * @param atributo
-	 * @return String contendo a informação desejada do aluno especificado por
+	 * @return String contendo a informacaoo desejada do aluno especificado por
 	 *         matricula.
 	 */
 	public String getinfoAluno(String matricula, String atributo) {
@@ -135,14 +135,14 @@ public class AlunoController {
 	/**
 	 * 
 	 * @param matricula
-	 * @return Retorna o Objeto Aluno associado a esta matricula na coleção .
+	 * @return Retorna o Objeto Aluno associado a esta matricula na colecao .
 	 */
 	public Aluno getAluno(String matricula) {
 		return this.alunos.get(matricula);
 	}
 
 	/**
-	 * Metodo responsável por subistituir o objeto aluno associado a determinada
+	 * Metodo responsavel por subistituir o objeto aluno associado a determinada
 	 * matricula , por um novo aluno associado a mesma matricula.
 	 * 
 	 * @param matricula

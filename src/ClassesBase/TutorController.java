@@ -6,11 +6,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Teste
+/**
+ * 
+ * @author Jonathan Lucas - 116210084 
+ * 
+ * Classe responsavel por controla as funcoes relativas a Tutor - TutorController
+ *
+ */
 public class TutorController {
 
 	private Map<String, Tutor> tutores = new HashMap<String, Tutor>();
 
+	/**
+	 * Metodo responsavel por cadastrar um tutor no sistema.
+	 * 
+	 * @param nome
+	 * @param matricula
+	 * @param codigoCurso
+	 * @param telefone
+	 * @param email
+	 * @param notaAvaliacao
+	 * @param disciplina
+	 * @param proficiencia
+	 */
 	public Tutor tornarTutor(String nome, String matricula, int codigoCurso, String telefone, String email,
 			double notaAvaliacao, String disciplina, int proficiencia) {
 
@@ -36,6 +54,14 @@ public class TutorController {
 		}
 	}
 
+	/**
+	 * Metodo responsavel por recuperar um tutor por meio da matricula na colecaoo.
+	 * 
+	 * @param matricula
+	 * 
+	 * @return Representacao em String de um determinado tutor por meio de sua
+	 *         matricula.
+	 */
 	public String recuperaTutor(String matricula) {
 		if (!this.tutores.containsKey(matricula)) {
 			throw new IllegalArgumentException("Erro na busca por tutor: Tutor nao encontrado");
@@ -43,6 +69,11 @@ public class TutorController {
 		return tutores.get(matricula).toString();
 	}
 
+	/**
+	 * Metodo responsavel por listar os tutores. 
+	 * 
+	 * @return String contendo a representando de todos os alunos cadastrados .
+	 */
 	public String listarTutores() {
 
 		List<Tutor> tutores = new ArrayList<Tutor>();
@@ -54,7 +85,11 @@ public class TutorController {
 		}
 		return aux.substring(0, aux.length() - 2);
 	}
-
+	
+	/**
+	 * 
+	 * @return String contendo a representando de todos os alunos cadastrados .
+	 */
 	public void cadastrarHorario(String email, String horario, String dia) {
 		if (vaziaOuNula(email)) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: email nao pode ser vazio ou em branco");
@@ -64,6 +99,7 @@ public class TutorController {
 		}
 		this.tutores.get(procuraTutor(email)).cadastrarHorario(horario, dia);
 	}
+	
 
 	public void cadastrarLocalDeAtendimento(String email, String local) {
 		if (vaziaOuNula(local)) {

@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Classe que representa um aluno.
  * 
- * Além das informações do aluno, é possível mudar sua avaliação e ele se
- * compara com outros pela ordem alfabética do nome.
+ * Alem das informacoes do aluno, eh possivel mudar sua avaliacao e ele se
+ * compara com outros pela ordem alfabetica do nome.
  * 
  * @author marcosbmf
  *
@@ -22,11 +22,18 @@ public class Aluno implements Comparable<Aluno> {
 	private double notaAvalicao;
 
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao) {
-		if (nome.trim().equals("") || nome == null) {
+		if (stringVaziaOuNula(nome)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
-		} else if (eMail.trim().equals("") || eMail == null) {
+		} else if (stringVaziaOuNula(eMail)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
-		}
+		} else if (stringVaziaOuNula(matricula)) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Matricula invalida");
+		} else if (stringVaziaOuNula(telefone)) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Telefone invalido");
+		} else if (notaAvaliacao < 0 || notaAvaliacao > 5) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Nota de Avalicao invalida");
+		} 
+		
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
@@ -80,6 +87,13 @@ public class Aluno implements Comparable<Aluno> {
 
 	public int compareTo(Aluno o) {
 		return this.nome.compareTo(o.nome);
+	}
+	
+	private boolean stringVaziaOuNula(String texto) {
+		if (texto.trim().equals("") || texto == null) {
+			return true;
+		}
+		return false;
 	}
 
 }

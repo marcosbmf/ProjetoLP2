@@ -8,8 +8,8 @@ import java.util.Map;
 
 /***
  * 
- * @author Thyago Pereira da Silva - 117110164 Classe responsável pela
- *         representação de uma agenda com disponibilidade de horarios , locais
+ * @author Thyago Pereira da Silva - 117110164 Classe responsavel pela
+ *         representacao de uma agenda com disponibilidade de horarios , locais
  *         e dias para tutoria .
  */
 public class Agenda {
@@ -18,7 +18,7 @@ public class Agenda {
 	private Map<String, ArrayList<LocalTime>> horarios = new HashMap<String, ArrayList<LocalTime>>();
 
 	/**
-	 * Metodo responsável por cadastrar um dia da semana e um horario para a
+	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
 	 * tutoria.
 	 * 
 	 * @param horario
@@ -45,7 +45,7 @@ public class Agenda {
 	}
 
 	/**
-	 * Metodo responsável por converter uma String representado um horario no
+	 * Metodo responsavel por converter uma String representado um horario no
 	 * formato HH:MM para um objeto LocalTime da API de java 8
 	 * 
 	 * @param horario
@@ -56,10 +56,10 @@ public class Agenda {
 		horaMin = horario.split(":");
 		return LocalTime.of(Integer.valueOf(horaMin[0]), Integer.valueOf(horaMin[0]));
 	}
-	
-	
+
 	/**
-	 * Metodo responsável por cadastrar um local para ocorrencia da tutoria .
+	 * Metodo responsavel por cadastrar um local para ocorrencia da tutoria .
+	 * 
 	 * @param local
 	 */
 	public void cadastrarLocalDeAtendimento(String local) {
@@ -69,13 +69,15 @@ public class Agenda {
 		}
 		this.locais.add(local);
 	}
-	
-	
+
 	/**
-	 * Metodo responsável por verificar se um determinado  horario de um dia é disponivel para  a tutoria .
+	 * Metodo responsavel por verificar se um determinado horario de um dia esta
+	 * disponivel para a tutoria.
+	 * 
 	 * @param horario
 	 * @param dia
-	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora 
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
 	 */
 	public boolean consultaHorario(String horario, String dia) {
 		if (!this.horarios.containsKey(dia)) {
@@ -87,11 +89,14 @@ public class Agenda {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * Metodo responsável por verificar se um determinado local está cadastrado no tutor para a tutoria 
+	 * Metodo responsavel por verificar se um determinado local estah cadastrado no
+	 * tutor para a tutoria
+	 * 
 	 * @param local
-	 * @return Boolean afirmando disponibilidade de tutoria no local 
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no local
 	 */
 	public boolean consultaLocal(String local) {
 		if (local.trim().equals("")) {
