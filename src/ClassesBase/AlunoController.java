@@ -45,6 +45,21 @@ public class AlunoController {
 		alunos.put(matricula, new Aluno(nome, matricula, codigoCurso, telefone, email));
 
 	}
+	
+	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email, double notaAvaliacao) {
+		if (!this.emailValido(email)) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
+		}
+
+		if (alunos.containsKey(matricula)) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Aluno de mesma matricula ja cadastrado");
+		}
+		alunos.put(matricula, new Aluno(nome, matricula, codigoCurso, telefone, email ,notaAvaliacao));
+
+	}
+	
+	
+	
 
 	/**
 	 * Metodo responsavel por verificar se o email fornecido eh valido no formato
