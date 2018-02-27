@@ -33,10 +33,10 @@ public class Agenda {
 	 * @param dia
 	 */
 	public void cadastrarHorario(String horario, String dia) {
-		if (horario.trim().equals("")) {
+		if (stringVaziaOuNula(horario)) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: horario nao pode ser vazio ou em branco");
 		}
-		if (dia.trim().equals("")) {
+		if (stringVaziaOuNula(dia)) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: dia nao pode ser vazio ou em branco");
 		}
 
@@ -71,7 +71,7 @@ public class Agenda {
 	 * @param local
 	 */
 	public void cadastrarLocalDeAtendimento(String local) {
-		if (local.trim().equals("")) {
+		if (stringVaziaOuNula(local)) {
 			throw new IllegalArgumentException(
 					"Erro no cadastrar local de atendimento: local nao pode ser vazio ou em branco");
 		}
@@ -88,6 +88,13 @@ public class Agenda {
 	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
 	 */
 	public boolean consultaHorario(String horario, String dia) {
+		if (stringVaziaOuNula(horario)) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: horario nao pode ser vazio ou em branco");
+		}
+		if (stringVaziaOuNula(dia)) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: dia nao pode ser vazio ou em branco");
+		}
+		
 		if (!this.horarios.containsKey(dia)) {
 			return false;
 		}
@@ -107,7 +114,7 @@ public class Agenda {
 	 * @return Boolean afirmando disponibilidade de tutoria no local
 	 */
 	public boolean consultaLocal(String local) {
-		if (local.trim().equals("")) {
+		if (stringVaziaOuNula(local)) {
 			throw new IllegalArgumentException(
 					"Erro no consultar local de atendimento: local nao pode ser vazio ou em branco");
 		}
@@ -117,6 +124,13 @@ public class Agenda {
 		} else {
 			return false;
 		}
+	}
+	
+	private boolean stringVaziaOuNula(String texto) {
+		if (texto.trim().equals("") || texto == null) {
+			return true;
+		}
+		return false;
 	}
 
 }

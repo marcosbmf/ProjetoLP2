@@ -13,7 +13,7 @@ import java.util.Map;
  *
  */
 public class AlunoController {
-	private Map<String, Aluno> alunos; 
+	private Map<String, Aluno> alunos;
 
 	/**
 	 * Contrutor de AlunoController
@@ -21,11 +21,10 @@ public class AlunoController {
 	 * Inicializa a colecao de alunos;
 	 */
 	public AlunoController() {
-		
+
 		this.alunos = new HashMap<String, Aluno>();
 	}
-	
-	
+
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
 	 * 

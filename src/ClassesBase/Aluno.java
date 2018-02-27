@@ -38,7 +38,9 @@ public class Aluno implements Comparable<Aluno> {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Telefone invalido");
 		} else if (notaAvaliacao < 0 || notaAvaliacao > 5) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nota de Avalicao invalida");
-		} 
+		} else if (codigoCurso <= 0) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Codigo de Curso invalido");
+		}
 		
 		this.nome = nome;
 		this.matricula = matricula;

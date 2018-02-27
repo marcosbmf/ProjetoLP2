@@ -8,9 +8,10 @@ import java.util.Map;
 
 /**
  * 
- * @author Jonathan Lucas - 116210084 
+ * @author Jonathan Lucas - 116210084
  * 
- * Classe responsavel por controla as funcoes relativas a Tutor - TutorController
+ *         Classe responsavel por controla as funcoes relativas a Tutor -
+ *         TutorController
  *
  */
 public class TutorController {
@@ -25,7 +26,7 @@ public class TutorController {
 	public TutorController() {
 		this.tutores = new HashMap<String, Tutor>();
 	}
-	
+
 	/**
 	 * Metodo responsavel por cadastrar um tutor no sistema.
 	 * 
@@ -79,7 +80,7 @@ public class TutorController {
 	}
 
 	/**
-	 * Metodo responsavel por listar os tutores. 
+	 * Metodo responsavel por listar os tutores.
 	 * 
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
@@ -94,7 +95,7 @@ public class TutorController {
 		}
 		return aux.substring(0, aux.length() - 2);
 	}
-	
+
 	/**
 	 * 
 	 * @return String contendo a representando de todos os alunos cadastrados .
@@ -108,7 +109,6 @@ public class TutorController {
 		}
 		this.tutores.get(procuraTutor(email)).cadastrarHorario(horario, dia);
 	}
-	
 
 	public void cadastrarLocalDeAtendimento(String email, String local) {
 		if (vaziaOuNula(local)) {
