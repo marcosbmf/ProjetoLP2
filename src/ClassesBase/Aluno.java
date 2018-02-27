@@ -1,7 +1,5 @@
 package ClassesBase;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Classe que representa um aluno.

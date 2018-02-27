@@ -39,6 +39,9 @@ public class Tutor extends Aluno {
 	}
 
 	public void adicionaDisciplina(String disciplina, int proficiencia) {
+		if(consultaDisciplina(disciplina)) {
+			throw new IllegalArgumentException("Erro ao adicionar disciplina: Aluno já é tutor desta disciplina");
+		}
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 	}
 
@@ -48,18 +51,6 @@ public class Tutor extends Aluno {
 
 	public double getNotaAvaliacao() {
 		return notaAvaliacao;
-	}
-
-	public void mudaAvaliacao(double avaliacao) {
-		this.notaAvaliacao = avaliacao;
-	}
-
-	public int getDinheiroRecebido() {
-		return dinheiroRecebido;
-	}
-
-	public void recebeDinheiro(int quantidade) {
-		this.dinheiroRecebido += quantidade;
 	}
 
 	public void cadastrarHorario(String horario, String dia) {

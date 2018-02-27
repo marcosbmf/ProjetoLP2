@@ -58,7 +58,7 @@ public class AlunoController {
 			return false;
 		}
 		if (email == null) {
-			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
+			throw new NullPointerException("Erro no cadastro de aluno: Email invalido");
 		}
 		if (!email.contains("@")) {
 			return false;
