@@ -15,8 +15,17 @@ import java.util.Map;
  */
 public class TutorController {
 
-	private Map<String, Tutor> tutores = new HashMap<String, Tutor>();
+	private Map<String, Tutor> tutores;
 
+	/**
+	 * Contrutor de TutorController
+	 * 
+	 * Inicializa a colecao de tutores.
+	 */
+	public TutorController() {
+		this.tutores = new HashMap<String, Tutor>();
+	}
+	
 	/**
 	 * Metodo responsavel por cadastrar um tutor no sistema.
 	 * 

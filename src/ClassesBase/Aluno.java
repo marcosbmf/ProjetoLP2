@@ -21,6 +21,12 @@ public class Aluno implements Comparable<Aluno> {
 	private String eMail;
 	private double notaAvalicao;
 
+
+	/**
+	 * Contrutor de Aluno.
+	 * 
+	 * Inicializa a colecao de alunos;
+	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao) {
 		if (stringVaziaOuNula(nome)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
@@ -28,7 +34,7 @@ public class Aluno implements Comparable<Aluno> {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
 		} else if (stringVaziaOuNula(matricula)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Matricula invalida");
-		} else if (stringVaziaOuNula(telefone)) {
+		} else if (telefone == null) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Telefone invalido");
 		} else if (notaAvaliacao < 0 || notaAvaliacao > 5) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nota de Avalicao invalida");

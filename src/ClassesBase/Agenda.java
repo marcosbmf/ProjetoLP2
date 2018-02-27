@@ -14,9 +14,17 @@ import java.util.Map;
  */
 public class Agenda {
 
-	private List<String> locais = new ArrayList<String>();
-	private Map<String, ArrayList<LocalTime>> horarios = new HashMap<String, ArrayList<LocalTime>>();
+	private List<String> locais; 
+	private Map<String, ArrayList<LocalTime>> horarios; 
 
+	
+	
+	public Agenda() {
+		
+		this.locais = new ArrayList<String>();
+		this.horarios = new HashMap<String, ArrayList<LocalTime>>();
+	}
+	
 	/**
 	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
 	 * tutoria.
