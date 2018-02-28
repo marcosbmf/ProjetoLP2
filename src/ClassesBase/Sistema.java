@@ -1,5 +1,12 @@
 package ClassesBase;
 
+/**
+ * 
+ * @author Victor Ribeiro Miranda - 116211361 Classe responsavel por gerenciar e
+ *         delegar funcoes para outras classes - Sistema
+ *
+ */
+
 public class Sistema {
 
 	AlunoController ac = new AlunoController();
@@ -37,18 +44,18 @@ public class Sistema {
 	public String listarAlunos() {
 		return ac.listarAlunos();
 	}
-	
+
 	/**
 	 * Recupera a informacaoo solicitada do aluno , por meio da matricula
 	 * 
 	 * @param matricula
 	 * @param atributo
-	 * @return String contendo a informacaoo desejada do aluno especificado por matricula.
+	 * @return String contendo a informacaoo desejada do aluno especificado por
+	 *         matricula.
 	 */
 	public String getInfoAluno(String matricula, String atributo) {
 		return ac.getinfoAluno(matricula, atributo);
 	}
-
 
 	/**
 	 * Metodo responsavel por cadastrar um tutor no sistema.
@@ -91,7 +98,6 @@ public class Sistema {
 		return tc.listarTutores();
 	}
 
-	
 	/**
 	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
 	 * tutoria.
@@ -99,11 +105,11 @@ public class Sistema {
 	 * @param horario
 	 * @param dia
 	 */
-	
+
 	public void cadastrarHorario(String email, String horario, String dia) {
 		tc.cadastrarHorario(email, horario, dia);
 	}
-	
+
 	/**
 	 * Metodo responsavel por cadastrar um local para ocorrencia da tutoria .
 	 * 
