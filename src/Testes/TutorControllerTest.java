@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 
 import ClassesBase.Tutor;
 import ClassesBase.TutorController;
@@ -123,6 +124,15 @@ public class TutorControllerTest {
 	
 	
 	
+=======
+		
+public class TutorControllerTest {
+
+	@Test
+	public void testConstrutor() {
+		
+	}
+>>>>>>> 59c19fd08dafb7487eaa6efebce58b1624c2b2c7
 
 	
 	
