@@ -8,9 +8,11 @@ import java.util.Map;
 
 /***
  * 
- * @author Thyago Pereira da Silva - 117110164 Classe responsavel pela
- *         representacao de uma agenda com disponibilidade de horarios , locais
- *         e dias para tutoria .
+ * @author Thyago Pereira da Silva - 117110164 
+ * 
+ * 	Classe responsavel pela
+ *  representacao de uma agenda com disponibilidade de horarios , locais
+ *  e dias para tutoria .
  */
 public class Agenda {
 
@@ -18,7 +20,10 @@ public class Agenda {
 	private Map<String, ArrayList<LocalTime>> horarios; 
 
 	
-	
+	/**
+	* Constroi uma agenda e inicializa as colecoes dos locais e horarios.
+	*  
+	*/
 	public Agenda() {
 		
 		this.locais = new ArrayList<String>();
@@ -126,6 +131,11 @@ public class Agenda {
 		}
 	}
 	
+	/**
+	 * Metodo responsavel por verificar se uma string recebida como parametro, é vazia ou nula.
+	 * 
+	 * @param texto
+	 */
 	private boolean stringVaziaOuNula(String texto) {
 		if (texto.trim().equals("") || texto == null) {
 			return true;

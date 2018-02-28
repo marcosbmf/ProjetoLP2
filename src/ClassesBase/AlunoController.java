@@ -97,6 +97,7 @@ public class AlunoController {
 	}
 
 	/**
+	 *  Metodo responsavel por listar os alunos.
 	 * 
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
@@ -116,8 +117,7 @@ public class AlunoController {
 	 * 
 	 * @param matricula
 	 * @param atributo
-	 * @return String contendo a informacaoo desejada do aluno especificado por
-	 *         matricula.
+	 * @return String contendo a informacaoo desejada do aluno especificado por matricula.
 	 */
 	public String getinfoAluno(String matricula, String atributo) {
 		if (!this.alunos.containsKey(matricula)) {

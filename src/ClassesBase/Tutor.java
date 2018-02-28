@@ -2,9 +2,12 @@ package ClassesBase;
 
 import java.util.ArrayList;
 
-/**
+ /**
  * 
  * @author Marcos Barros
+ * 
+ * 	Classe responsavel pela representacao de um Tutor, que guarda as disciplinas que ele presta tutoria, sua nota de avaliacao e
+ *  sua proficiencia na mesma.
  *
  */
 public class Tutor extends Aluno {
@@ -14,7 +17,23 @@ public class Tutor extends Aluno {
 	private double notaAvaliacao;
 	private int dinheiroRecebido;
 	private Agenda agenda;
-
+   
+	
+	/**
+   * Constroí um tutor a partir do nome, da matricula, do código do curso,  do telefone dele, do seu email, e da sua nota de avaliaçao,
+   * a disciplina que ira prestar tutoria e sua proficiencia.
+   * 
+   *
+   * @param nome
+   * @param matricula
+   * @param codigoCurso
+   * @param telefone
+   * @param eMail
+   * @param notaAvaliacao
+   * @param disciplina
+   * @param proficiencia
+   * 
+   */
 	public Tutor(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao,
 			String disciplina, int proficiencia) {
 		super(nome, matricula, codigoCurso, telefone, eMail, notaAvaliacao);
@@ -24,11 +43,21 @@ public class Tutor extends Aluno {
 		this.dinheiroRecebido = 0;
 		this.agenda = new Agenda();
 	}
-
+	
+	/**
+	 * @return A colecao de disciplinas o qual o tutor presta tutoria.
+	 */
 	public ArrayList<Disciplina> getDisciplina() {
 		return disciplinas;
 	}
-
+	
+	/**
+	 * Metodo responsavel por verificar seu o tutor ja esta cadastrado como tutor em uma determinada disciplina
+	 * 
+	 * @param nome, da disciplina a ser verificada
+	 * 
+	 * @return Boolean, true caso o tuutor ja esteja prestando tutoria na disciplina, e false caso não esteja.
+	 */
 	public boolean consultaDisciplina(String nome) {
 		for (Disciplina disciplina : disciplinas) {
 			if (disciplina.getNome().equals(nome)) {
@@ -37,34 +66,77 @@ public class Tutor extends Aluno {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Metodo responsavel por acrescentar uma disciplina para o tutor. 
+	 * 
+	 * @param disciplna
+	 * @param proficiencia
+	 * 
+	 */
 	public void adicionaDisciplina(String disciplina, int proficiencia) {
 		if(consultaDisciplina(disciplina)) {
 			throw new IllegalArgumentException("Erro ao adicionar disciplina: Aluno jÃ¡ Ã© tutor desta disciplina");
 		}
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 	}
-
+	
+	/**
+	 * @return A proficiencia do tutor na disciplina.
+	 */
 	public int getProficiencia() {
 		return proficiencia;
 	}
 
+	/**
+	 * @return A nota de avaliacao do tutor.
+	 */
 	public double getNotaAvaliacao() {
 		return notaAvaliacao;
 	}
-
+	
+	/**
+	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
+	 * tutoria.
+	 * 
+	 * @param horario
+	 * @param dia
+	 */
 	public void cadastrarHorario(String horario, String dia) {
 		this.agenda.cadastrarHorario(horario, dia);
 	}
 
+	
+	/**
+	 * Metodo responsavel por cadastrar um local para ocorrencia da tutoria .
+	 * 
+	 * @param local
+	 */
 	public void cadastrarLocalDeAtendimento(String local) {
 		this.agenda.cadastrarLocalDeAtendimento(local);
 	}
 
+	/**
+	 * Metodo responsavel por verificar se um determinado horario de um dia esta
+	 * disponivel para a tutoria.
+	 * 
+	 * @param horario
+	 * @param dia
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
+	 */
 	public boolean consultaHorario(String horario, String dia) {
 		return this.agenda.consultaHorario(horario, dia);
 	}
 
+	/**
+	 * Metodo responsavel por verificar se um determinado local esta cadastrado no
+	 * tutor para a tutoria
+	 * 
+	 * @param local
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no local
+	 */
 	public boolean consultaLocal(String local) {
 		return this.agenda.consultaLocal(local);
 	}

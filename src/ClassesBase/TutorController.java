@@ -10,8 +10,7 @@ import java.util.Map;
  * 
  * @author Jonathan Lucas - 116210084
  * 
- *         Classe responsavel por controla as funcoes relativas a Tutor -
- *         TutorController
+ * Classe responsavel por controla as funcoes relativas a Tutor - TutorController
  *
  */
 public class TutorController {
@@ -96,9 +95,13 @@ public class TutorController {
 		return aux.substring(0, aux.length() - 2);
 	}
 
+	
 	/**
+	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
+	 * tutoria.
 	 * 
-	 * @return String contendo a representando de todos os alunos cadastrados .
+	 * @param horario
+	 * @param dia
 	 */
 	public void cadastrarHorario(String email, String horario, String dia) {
 		if (vaziaOuNula(email)) {
@@ -110,6 +113,11 @@ public class TutorController {
 		this.tutores.get(procuraTutor(email)).cadastrarHorario(horario, dia);
 	}
 
+	/**
+	 * Metodo responsavel por cadastrar um local para ocorrencia da tutoria .
+	 * 
+	 * @param local
+	 */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
 		if (vaziaOuNula(local)) {
 			throw new IllegalArgumentException(
@@ -125,6 +133,16 @@ public class TutorController {
 		this.tutores.get(procuraTutor(email)).cadastrarLocalDeAtendimento(local);
 	}
 
+	
+	/**
+	 * Metodo responsavel por verificar se um determinado horario de um dia esta
+	 * disponivel para a tutoria.
+	 * 
+	 * @param horario
+	 * @param dia
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
+	 */
 	public boolean consultaHorario(String email, String horario, String dia) {
 		if (vaziaOuNula(email)) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: email nao pode ser vazio ou em branco");
@@ -135,6 +153,14 @@ public class TutorController {
 		return this.tutores.get(procuraTutor(email)).consultaHorario(horario, dia);
 	}
 
+	/**
+	 * Metodo responsavel por verificar se um determinado local esta cadastrado no
+	 * tutor para a tutoria
+	 * 
+	 * @param local
+	 * 
+	 * @return Boolean afirmando disponibilidade de tutoria no local
+	 */
 	public boolean consultaLocal(String email, String local) {
 		if (procuraTutor(email).equals("")) {
 			return false;
@@ -145,7 +171,13 @@ public class TutorController {
 	public void pagarTutor(String matricula, int quantidade) {
 
 	}
-
+	/**
+	 * Metodo responsavel por procurar a matricula de um tutor a partir do seu Email.
+	 * 
+	 * @param email a ser procurado
+	 * 
+	 * @return A matricula do tutor 
+	 */
 	private String procuraTutor(String email) {
 		for (String matricula : this.tutores.keySet()) {
 			Tutor tutor = this.tutores.get(matricula);
@@ -155,7 +187,12 @@ public class TutorController {
 		}
 		return "";
 	}
-
+	
+	/**
+	 * Metodo responsavel por verificar se uma string recebida como parametro, é vazia ou nula.
+	 * 
+	 * @param texto
+	 */
 	private boolean vaziaOuNula(String texto) {
 		if (texto.trim().equals("") || texto == null) {
 			return true;
