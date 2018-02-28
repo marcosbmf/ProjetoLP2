@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
+ /**
  * 
  * @author Thyago Pereira da Silva - 117110164 Classe responsavel por controlar
  *         as funcoes relativas a aluno - AlunoController
@@ -58,9 +58,6 @@ public class AlunoController {
 
 	}
 	
-	
-	
-
 	/**
 	 * Metodo responsavel por verificar se o email fornecido eh valido no formato
 	 * XXXXX.XXXXX@#########
@@ -128,12 +125,12 @@ public class AlunoController {
 	}
 
 	/**
-	 * Recupera a informacaoo solicitada do aluno , por meio da matricula
-	 * 
-	 * @param matricula
-	 * @param atributo
-	 * @return String contendo a informacaoo desejada do aluno especificado por matricula.
-	 */
+	* Recupera a informacaoo solicitada do aluno , por meio da matricula
+	* 
+	* @param matricula
+	* @param atributo
+	* @return String contendo a informacaoo desejada do aluno especificado por matricula.
+	*/
 	public String getinfoAluno(String matricula, String atributo) {
 		if (!this.alunos.containsKey(matricula)) {
 			throw new IllegalArgumentException("Erro na obtencao de informacao de aluno: Aluno nao encontrado");
@@ -158,10 +155,10 @@ public class AlunoController {
 	}
 
 	/**
-	 * 
-	 * @param matricula
-	 * @return Retorna o Objeto Aluno associado a esta matricula na colecao .
-	 */
+	* 
+	* @param matricula
+	* @return Retorna o Objeto Aluno associado a esta matricula na colecao .
+	*/
 	public Aluno getAluno(String matricula) {
 		return this.alunos.get(matricula);
 	}
