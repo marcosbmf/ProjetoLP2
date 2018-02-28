@@ -15,7 +15,6 @@ public class Tutor extends Aluno {
 	private ArrayList<Disciplina> disciplinas;
 	private int proficiencia;
 	private double notaAvaliacao;
-	private int dinheiroRecebido;
 	private Agenda agenda;
    
 	
@@ -40,7 +39,6 @@ public class Tutor extends Aluno {
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 		this.notaAvaliacao = 4.0;
-		this.dinheiroRecebido = 0;
 		this.agenda = new Agenda();
 	}
 	
