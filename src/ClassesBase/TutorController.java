@@ -38,28 +38,24 @@ public class TutorController {
 	 * @param disciplina
 	 * @param proficiencia
 	 */
-	public Tutor tornarTutor(String nome, String matricula, int codigoCurso, String telefone, String email,
-			double notaAvaliacao, String disciplina, int proficiencia) {
+	public void tornarTutor(Aluno aluno , String disciplina, int proficiencia) {
 
 		if (proficiencia < 0) {
 			throw new IllegalArgumentException("Erro na definicao de papel: Proficiencia invalida");
 		}
 
-		if (this.tutores.containsKey(matricula)) {
-			if (this.tutores.get(matricula).consultaDisciplina(disciplina)) {
+		if (this.tutores.containsKey(aluno.getMatricula())) {
+			if (this.tutores.get(aluno.getMatricula()).consultaDisciplina(disciplina)) {
 				throw new IllegalArgumentException("Erro na definicao de papel: Ja eh tutor dessa disciplina");
 			} else {
-				this.tutores.get(matricula).adicionaDisciplina(disciplina, proficiencia);
-				return tutores.get(matricula);
+				this.tutores.get(aluno.getMatricula()).adicionaDisciplina(disciplina, proficiencia);
 			}
 		} else {
 
-			Tutor novoTutor = new Tutor(nome, matricula, codigoCurso, telefone, email, notaAvaliacao, disciplina,
-					proficiencia);
+			Tutor novoTutor = new Tutor(aluno ,disciplina,proficiencia);
 
-			tutores.put(matricula, novoTutor);
+			tutores.put(aluno.getMatricula(), novoTutor);
 
-			return novoTutor;
 		}
 	}
 
@@ -181,7 +177,7 @@ public class TutorController {
 	private String procuraTutor(String email) {
 		for (String matricula : this.tutores.keySet()) {
 			Tutor tutor = this.tutores.get(matricula);
-			if (tutor.geteMail().equals(email)) {
+			if (tutor.getEmail().equals(email)) {
 				return matricula;
 			}
 		}
@@ -189,7 +185,7 @@ public class TutorController {
 	}
 	
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, é vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½ vazia ou nula.
 	 * 
 	 * @param texto
 	 */

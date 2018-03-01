@@ -21,7 +21,7 @@ public class Aluno implements Comparable<Aluno> {
 
 
     /**
-   * Constroí um aluno a partir do nome, da matricula, do código do curso,  do telefone dele, do seu email, e da sua nota de avaliaçao.
+   * Constroï¿½ um aluno a partir do nome, da matricula, do cï¿½digo do curso,  do telefone dele, do seu email, e da sua nota de avaliaï¿½ao.
    * 
    *
    * @param nome
@@ -61,11 +61,11 @@ public class Aluno implements Comparable<Aluno> {
 	}
 	
 	/**
-	 * Metodo responsavel por organizar as informações de contato do aluno.
+	 * Metodo responsavel por organizar as informaï¿½ï¿½es de contato do aluno.
 	 * 
 	 * @return String contendo apenas o email ou o email + telefone.
 	 */
-	private String contato() {
+	public  String contato() {
 		if (this.telefone.trim().equals("")) {
 			return this.eMail;
 		}
@@ -73,10 +73,10 @@ public class Aluno implements Comparable<Aluno> {
 	}
 	
 	/**
-	 * Este método retorna a String que representa um aluno 
+	 * Este mï¿½todo retorna a String que representa um aluno 
 	 * No formato: matricula - nome - codigocurso - telefone (se tiver) - email 
 	 * 	
-	 * @return representação em String de um aluno.
+	 * @return representaï¿½ï¿½o em String de um aluno.
 	 */
 	public String toString() {
 		return this.matricula + " - " + this.nome + " - " + this.codigoCurso + " - " + this.contato();
@@ -143,7 +143,7 @@ public class Aluno implements Comparable<Aluno> {
 	}
 	
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, é vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½ vazia ou nula.
 	 * 
 	 * @param texto
 	 */
