@@ -4,11 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ClassesBase.Sistema;
+import ClassesBase.Facade;
 
 public class SistemaTest {
 
-	Sistema sistema;
+	Facade sistema;
 	
 	/**
 	* Testa O funcionamento do construtor de Sistema
@@ -16,7 +16,7 @@ public class SistemaTest {
 
 	@Before
 	public void testConstructor() {
-		sistema = new Sistema();
+		sistema = new Facade();
 	}
 
 	/**

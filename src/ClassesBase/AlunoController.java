@@ -160,6 +160,11 @@ public class AlunoController {
 	* @return Retorna o Objeto Aluno associado a esta matricula na colecao .
 	*/
 	public Aluno getAluno(String matricula) {
+		try {
+			this.recuperaAluno(matricula);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Tutor nao encontrado");
+		}
 		return this.alunos.get(matricula);
 	}
 
