@@ -10,16 +10,16 @@ import java.util.ArrayList;
  *  sua proficiencia na mesma.
  *
  */
-public class Tutor extends Aluno {
+public class Tutor  implements Comparable<Tutor>{
 
 	private ArrayList<Disciplina> disciplinas;
-	private int proficiencia;
+	private Aluno aluno;
 	private double notaAvaliacao;
 	private Agenda agenda;
    
 	
 	/**
-   * Constroí um tutor a partir do nome, da matricula, do código do curso,  do telefone dele, do seu email, e da sua nota de avaliaçao,
+   * Constroï¿½ um tutor a partir do nome, da matricula, do cï¿½digo do curso,  do telefone dele, do seu email, e da sua nota de avaliaï¿½ao,
    * a disciplina que ira prestar tutoria e sua proficiencia.
    * 
    *
@@ -33,9 +33,8 @@ public class Tutor extends Aluno {
    * @param proficiencia
    * 
    */
-	public Tutor(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao,
-			String disciplina, int proficiencia) {
-		super(nome, matricula, codigoCurso, telefone, eMail, notaAvaliacao);
+	public Tutor(Aluno aluno, String disciplina, int proficiencia) {
+		this.aluno = aluno ;
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 		this.notaAvaliacao = 4.0;
@@ -54,7 +53,7 @@ public class Tutor extends Aluno {
 	 * 
 	 * @param nome, da disciplina a ser verificada
 	 * 
-	 * @return Boolean, true caso o tuutor ja esteja prestando tutoria na disciplina, e false caso não esteja.
+	 * @return Boolean, true caso o tuutor ja esteja prestando tutoria na disciplina, e false caso nï¿½o esteja.
 	 */
 	public boolean consultaDisciplina(String nome) {
 		for (Disciplina disciplina : disciplinas) {
@@ -82,8 +81,14 @@ public class Tutor extends Aluno {
 	/**
 	 * @return A proficiencia do tutor na disciplina.
 	 */
-	public int getProficiencia() {
-		return proficiencia;
+	public int getProficiencia(String disciplina) {
+		for (Disciplina disci : disciplinas ) {
+			if(disci.getNome().equals(disciplina)) {
+				return disci.getProficiencia() ; 
+			}
+		}
+		throw new IllegalArgumentException();
+		
 	}
 
 	/**
@@ -138,5 +143,28 @@ public class Tutor extends Aluno {
 	public boolean consultaLocal(String local) {
 		return this.agenda.consultaLocal(local);
 	}
+	
+	
+	public String getNome() {
+		return this.aluno.getNome() ;
+	}
+	
+	
+	public String getEmail() {
+		return this.aluno.geteMail();
+	}
+	
+
+	@Override
+	public int compareTo(Tutor o) {
+		return this.getNome().compareTo(o.getNome());
+		
+	}
+	
+	public String toString() {
+		return this.aluno.toString();
+	}
+
+	
 
 }

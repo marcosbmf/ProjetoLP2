@@ -1,7 +1,16 @@
 package ClassesBase;
 
+/**
+ * 
+ * @author Victor Ribeiro Miranda - 116211361 Classe responsavel por gerenciar e
+ *         delegar funcoes para outras classes - Sistema
+ *
+ */
+
 public class Facade {
-	private Sistema sistema = new Sistema();
+
+	AlunoController ac = new AlunoController();
+	TutorController tc = new TutorController();
 
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
@@ -13,7 +22,7 @@ public class Facade {
 	 * @param email
 	 */
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		sistema.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
+		ac.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
 	}
 
 	/**
@@ -24,9 +33,8 @@ public class Facade {
 	 *         matricula .
 	 */
 	public String recuperaAluno(String matricula) {
-		return sistema.recuperaAluno(matricula);
+		return ac.recuperaAluno(matricula);
 	}
-
 
 	/**
 	 * Metodo responsavel por listar os tutores.
@@ -34,7 +42,7 @@ public class Facade {
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarAlunos() {
-		return sistema.listarAlunos();
+		return ac.listarAlunos();
 	}
 
 	/**
@@ -42,10 +50,11 @@ public class Facade {
 	 * 
 	 * @param matricula
 	 * @param atributo
-	 * @return String contendo a informacaoo desejada do aluno especificado por matricula.
+	 * @return String contendo a informacaoo desejada do aluno especificado por
+	 *         matricula.
 	 */
 	public String getInfoAluno(String matricula, String atributo) {
-		return sistema.getInfoAluno(matricula, atributo);
+		return ac.getinfoAluno(matricula, atributo);
 	}
 
 	/**
@@ -55,10 +64,11 @@ public class Facade {
 	 * @param disciplina
 	 * @param proficiencia
 	 */
-	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
-		sistema.tornarTutor(matricula, disciplina, proficiencia);
+	public void tornarTutor(String matricula,String disciplina, int proficiencia) {
+		tc.tornarTutor(ac.getAluno(matricula),disciplina, proficiencia);
+
 	}
-	
+
 	/**
 	 * Metodo responsavel por recuperar um tutor por meio da matricula na colecaoo.
 	 * 
@@ -68,7 +78,7 @@ public class Facade {
 	 *         matricula.
 	 */
 	public String recuperaTutor(String matricula) {
-		return sistema.recuperaTutor(matricula);
+		return tc.recuperaTutor(matricula);
 	}
 
 	/**
@@ -77,7 +87,7 @@ public class Facade {
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarTutores() {
-		return sistema.listarTutores();
+		return tc.listarTutores();
 	}
 
 	/**
@@ -87,8 +97,9 @@ public class Facade {
 	 * @param horario
 	 * @param dia
 	 */
+
 	public void cadastrarHorario(String email, String horario, String dia) {
-		sistema.cadastrarHorario(email, horario, dia);
+		tc.cadastrarHorario(email, horario, dia);
 	}
 
 	/**
@@ -97,7 +108,7 @@ public class Facade {
 	 * @param local
 	 */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		sistema.cadastrarLocalDeAtendimento(email, local);
+		tc.cadastrarLocalDeAtendimento(email, local);
 	}
 
 	/**
@@ -110,9 +121,9 @@ public class Facade {
 	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
 	 */
 	public boolean consultaHorario(String email, String horario, String dia) {
-		return sistema.consultaHorario(email, horario, dia);
+		return tc.consultaHorario(email, horario, dia);
 	}
-	
+
 	/**
 	 * Metodo responsavel por verificar se um determinado local esta cadastrado no
 	 * tutor para a tutoria
@@ -122,6 +133,11 @@ public class Facade {
 	 * @return Boolean afirmando disponibilidade de tutoria no local
 	 */
 	public boolean consultaLocal(String email, String local) {
-		return sistema.consultaLocal(email, local);
+		return tc.consultaLocal(email, local);
 	}
+
+	public void pagarTutor(String matricula, int quantidade) {
+		tc.pagarTutor(matricula, quantidade);
+	}
+
 }
