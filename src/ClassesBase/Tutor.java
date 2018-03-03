@@ -16,6 +16,7 @@ public class Tutor  implements Comparable<Tutor>{
 	private Aluno aluno;
 	private double notaAvaliacao;
 	private Agenda agenda;
+	private int idCriacao;
    
 	
 	/**
@@ -33,12 +34,13 @@ public class Tutor  implements Comparable<Tutor>{
    * @param proficiencia
    * 
    */
-	public Tutor(Aluno aluno, String disciplina, int proficiencia) {
+	public Tutor(Aluno aluno, String disciplina, int proficiencia, int idCriacao) {
 		this.aluno = aluno ;
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 		this.notaAvaliacao = 4.0;
 		this.agenda = new Agenda();
+		this.idCriacao = idCriacao;
 	}
 	
 	/**
@@ -163,6 +165,14 @@ public class Tutor  implements Comparable<Tutor>{
 	
 	public String toString() {
 		return this.aluno.toString();
+	}
+
+	public int getIdCriacao() {
+		return this.idCriacao;
+	}
+	
+	public String getMatricula() {
+		return this.aluno.getMatricula();
 	}
 
 	

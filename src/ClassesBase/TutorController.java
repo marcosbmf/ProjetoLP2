@@ -10,7 +10,8 @@ import java.util.Map;
  * 
  * @author Jonathan Lucas - 116210084
  * 
- * Classe responsavel por controla as funcoes relativas a Tutor - TutorController
+ *         Classe responsavel por controla as funcoes relativas a Tutor -
+ *         TutorController
  *
  */
 public class TutorController {
@@ -38,7 +39,7 @@ public class TutorController {
 	 * @param disciplina
 	 * @param proficiencia
 	 */
-	public void tornarTutor(Aluno aluno , String disciplina, int proficiencia) {
+	public void tornarTutor(Aluno aluno, String disciplina, int proficiencia) {
 
 		if (proficiencia < 0) {
 			throw new IllegalArgumentException("Erro na definicao de papel: Proficiencia invalida");
@@ -51,11 +52,8 @@ public class TutorController {
 				this.tutores.get(aluno.getMatricula()).adicionaDisciplina(disciplina, proficiencia);
 			}
 		} else {
-
-			Tutor novoTutor = new Tutor(aluno ,disciplina,proficiencia);
-
+			Tutor novoTutor = new Tutor(aluno, disciplina, proficiencia, this.tutores.size());
 			tutores.put(aluno.getMatricula(), novoTutor);
-
 		}
 	}
 
@@ -91,7 +89,6 @@ public class TutorController {
 		return aux.substring(0, aux.length() - 2);
 	}
 
-	
 	/**
 	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
 	 * tutoria.
@@ -129,7 +126,6 @@ public class TutorController {
 		this.tutores.get(procuraTutor(email)).cadastrarLocalDeAtendimento(local);
 	}
 
-	
 	/**
 	 * Metodo responsavel por verificar se um determinado horario de um dia esta
 	 * disponivel para a tutoria.
@@ -164,15 +160,14 @@ public class TutorController {
 		return this.tutores.get(procuraTutor(email)).consultaLocal(local);
 	}
 
-	public void pagarTutor(String matricula, int quantidade) {
-
-	}
 	/**
-	 * Metodo responsavel por procurar a matricula de um tutor a partir do seu Email.
+	 * Metodo responsavel por procurar a matricula de um tutor a partir do seu
+	 * Email.
 	 * 
-	 * @param email a ser procurado
+	 * @param email
+	 *            a ser procurado
 	 * 
-	 * @return A matricula do tutor 
+	 * @return A matricula do tutor
 	 */
 	private String procuraTutor(String email) {
 		for (String matricula : this.tutores.keySet()) {
@@ -183,9 +178,10 @@ public class TutorController {
 		}
 		return "";
 	}
-	
+
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½ vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½
+	 * vazia ou nula.
 	 * 
 	 * @param texto
 	 */
@@ -196,4 +192,81 @@ public class TutorController {
 		return false;
 	}
 
+	/**
+	 * Método que retorna o melhor tutor disponível nas condições repassadas, sendo
+	 * o id de criação do tutor um método de desempate.
+	 * 
+	 * @param disciplina
+	 * @param horario
+	 * @param dia
+	 * @param localInteresse
+	 * @return Objeto do tipo tutor.
+	 */
+	public Tutor getTutorDisponivel(String disciplina, String horario, String dia, String localInteresse) {
+		Tutor tutorDisponivel = null;
+		for (Tutor tutor : this.listaTutores()) {
+			if (tutor.consultaDisciplina(disciplina) && tutor.consultaHorario(horario, dia)
+					&& tutor.consultaLocal(localInteresse)) {
+				if (tutorDisponivel != null) {
+					tutorDisponivel = this.comparaTutores(tutorDisponivel, tutor, disciplina);
+				} else {
+					tutorDisponivel = tutor;
+				}
+			}
+		}
+		return tutorDisponivel;
+	}
+
+	/**
+	 * Método que retorna o melhor tutor disponível nas condições repassadas, sendo
+	 * o id de criação do tutor um método de desempate.
+	 * 
+	 * @param disciplina
+	 * @return Objeto do tipo tutor.
+	 */
+	public Tutor getTutorDisponivel(String disciplina) {
+		Tutor tutorDisponivel = null;
+		for (Tutor tutor : this.listaTutores()) {
+			if (tutor.consultaDisciplina(disciplina)) {
+				if (tutorDisponivel != null) {
+					tutorDisponivel = this.comparaTutores(tutorDisponivel, tutor, disciplina);
+				} else {
+					tutorDisponivel = tutor;
+				}
+			}
+		}
+		return tutorDisponivel;
+	}
+
+	/**
+	 * Método privado que retorna a lista de iterável de todos os tutores.
+	 * @return
+	 */
+	private List<Tutor> listaTutores() {
+		List<Tutor> tutores = new ArrayList<Tutor>();
+		tutores.addAll(this.tutores.values());
+		return tutores;
+	}
+	
+	/**
+	 * Método que compara dois tutores pela sua proficiência em uma disciplina e usa a ordem de criação como critério de desempate.
+	 * 
+	 * @param t1
+	 * @param t2
+	 * @param disciplina
+	 * @return
+	 */
+	private Tutor comparaTutores(Tutor t1, Tutor t2, String disciplina) {
+		if (t1.getProficiencia(disciplina) > t2.getProficiencia(disciplina)) {
+			return t1;
+		} else if (t2.getProficiencia(disciplina) > t1.getProficiencia(disciplina)) {
+			return t2;
+		} else {
+			if (t1.getIdCriacao() > t2.getIdCriacao()) {
+				return t1;
+			} else {
+				return t2;
+			}
+		}
+	}
 }

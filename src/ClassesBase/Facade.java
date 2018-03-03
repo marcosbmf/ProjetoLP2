@@ -10,7 +10,7 @@ package ClassesBase;
 public class Facade {
 
 	AlunoController ac = new AlunoController();
-	TutorController tc = new TutorController();
+	TutoriaController tc = new TutoriaController();
 
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
@@ -136,8 +136,23 @@ public class Facade {
 		return tc.consultaLocal(email, local);
 	}
 
-	public void pagarTutor(String matricula, int quantidade) {
-		tc.pagarTutor(matricula, quantidade);
+	public int pedirAjudaPresencial (String matrAluno, String disciplina, String horario, String dia, String localInteresse) {
+		return tc.pedirAjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse);
+	}
+	
+	
+	public int pedirAjudaOnline (String matrAluno, String disciplina) {
+		return tc.pedirAjudaOnline(matrAluno, disciplina);
+	}
+	
+	
+	public String pegarTutor(int idAjuda) {
+		return tc.pegarTutor(idAjuda);
+	}
+	
+	
+	public String getInfoAjuda(int idAjuda, String atributo) {
+		return tc.getInfoAjuda(idAjuda, atributo);
 	}
 
 }
