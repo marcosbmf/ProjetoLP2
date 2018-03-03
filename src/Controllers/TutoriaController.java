@@ -111,4 +111,16 @@ public class TutoriaController {
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		return ac.getInfoAjuda(idAjuda, atributo);
 	}
+
+	public String avaliarTutor(int idAjuda, int nota) {
+		return ac.avaliarTutor(idAjuda, nota);
+	}
+
+	public double pegarNota(String matriculaTutor) {
+		return tc.pegarNota(matriculaTutor);
+	}
+	
+	public String pegarNivel(String matriculaTutor) {
+		return tc.pegarNivel(matriculaTutor);
+	}
 }

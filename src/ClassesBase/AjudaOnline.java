@@ -2,8 +2,8 @@ package ClassesBase;
 
 public class AjudaOnline extends Ajuda {
 
-	public AjudaOnline(String matrAluno, String disciplina, Tutor tutor) {
-		super(matrAluno, disciplina, tutor);
+	public AjudaOnline(String matrAluno, String disciplina, Tutor tutor,int id) {
+		super(matrAluno, disciplina, tutor ,id);
 	}
 
 	@Override

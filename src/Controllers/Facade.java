@@ -154,5 +154,18 @@ public class Facade {
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		return tc.getInfoAjuda(idAjuda, atributo);
 	}
+	
+	
+	public String avaliarTutor(int idAjuda , int nota) {
+		return tc.avaliarTutor(idAjuda,nota);
+	}
+	
+	public double pegarNota(String matriculaTutor) {
+		return tc.pegarNota(matriculaTutor);
+	}
+	
+	public String pegarNivel(String matriculaTutor) {
+		return tc.pegarNivel(matriculaTutor);
+	}
 
 }

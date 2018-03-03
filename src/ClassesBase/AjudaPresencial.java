@@ -7,8 +7,8 @@ public class AjudaPresencial extends Ajuda {
 	String localInteresse;
 
 	public AjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
-			String localInteresse, Tutor tutor) {
-		super(matrAluno, disciplina, tutor);
+			String localInteresse, Tutor tutor , int id) {
+		super(matrAluno, disciplina, tutor, id);
 		this.horario = horario;
 		this.dia = dia;
 		this.localInteresse = localInteresse;

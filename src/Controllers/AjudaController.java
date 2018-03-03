@@ -28,7 +28,7 @@ public class AjudaController {
 		} else if (stringVaziaOuNula(horario)) {
 			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: horario nao pode ser vazio ou em branco");
 		}
-		this.ajudas.add(new AjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse, tutor));
+		this.ajudas.add(new AjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse, tutor, this.ajudas.size() + 1));
 		return this.ajudas.size();
 	}
 	
@@ -39,7 +39,7 @@ public class AjudaController {
 		} else if (stringVaziaOuNula(disciplina)) {
 			throw new IllegalArgumentException("Erro no pedido de ajuda online: disciplina nao pode ser vazio ou em branco");
 		}
-		this.ajudas.add(new AjudaOnline(matrAluno, disciplina, tutor));
+		this.ajudas.add(new AjudaOnline(matrAluno, disciplina, tutor , (this.ajudas.size() + 1)));
 		return this.ajudas.size();
 	}
 	
@@ -70,5 +70,25 @@ public class AjudaController {
 			return true;
 		}
 		return false;
+	}
+
+	public String avaliarTutor(int idAjuda, int nota) {
+		if(this.ajudas.size() < idAjuda -1 ) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: id nao encontrado ");
+		}
+		if(nota < 0) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser menor que 0");
+		}
+		if(nota > 5) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
+		}
+		if(!this.ajudas.get(idAjuda - 1 ).getAvaliada()) {
+			return this.ajudas.get(idAjuda - 1 ).calculaPontuacaoFinal(nota);
+		}
+		else {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: Ajuda ja avaliada");
+		}
+		
+		
 	}
 }

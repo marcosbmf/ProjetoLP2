@@ -17,6 +17,7 @@ public class Tutor  implements Comparable<Tutor>{
 	private double notaAvaliacao;
 	private Agenda agenda;
 	private int idCriacao;
+	private String nivel ;
    
 	
 	/**
@@ -39,6 +40,7 @@ public class Tutor  implements Comparable<Tutor>{
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
 		this.notaAvaliacao = 4.0;
+		this.nivel = "Tutor";
 		this.agenda = new Agenda();
 		this.idCriacao = idCriacao;
 	}
@@ -173,6 +175,37 @@ public class Tutor  implements Comparable<Tutor>{
 	
 	public String getMatricula() {
 		return this.aluno.getMatricula();
+	}
+
+	public void setPontuacao(double pontuacaoFinal) {
+		this.notaAvaliacao = pontuacaoFinal;
+		
+	}
+	
+	private void setNivel() {
+		if(this.notaAvaliacao > 4.5) {
+			this.nivel = "TOP";
+		}
+		else {
+			if((this.notaAvaliacao > 3.0) && (this.notaAvaliacao <= 4.5)) {
+				this.nivel = "Tutor";
+			}
+			else {
+				if((this.notaAvaliacao <= 3.0) && (this.notaAvaliacao >0)) {
+					this.nivel =  "Aprendiz";
+				}
+			}
+		}
+	} 
+		
+	
+	public String getNivel() {
+		this.setNivel();
+		return this.nivel ;
+	}
+	
+	public double getNota() {
+		return this.notaAvaliacao; 
 	}
 
 	

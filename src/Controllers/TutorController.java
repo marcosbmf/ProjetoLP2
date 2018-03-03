@@ -272,4 +272,12 @@ public class TutorController {
 			}
 		}
 	}
+
+	public double pegarNota(String matriculaTutor) {
+		return this.tutores.get(matriculaTutor).getNotaAvaliacao();
+	}
+	
+	public String pegarNivel(String matriculaTutor) {
+		return this.tutores.get(matriculaTutor).getNivel();
+	}
 }
