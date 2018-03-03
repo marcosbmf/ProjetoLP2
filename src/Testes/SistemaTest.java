@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ClassesBase.Facade;
+import Controllers.Facade;
 
 public class SistemaTest {
 
@@ -177,14 +177,5 @@ public class SistemaTest {
 		sistema.cadastrarLocalDeAtendimento("email@email.com", "local");
 		Assert.assertEquals(true, sistema.consultaLocal("email@email.com", "local"));
 	}
-	/**
-	* Testa o funcionamento do metodo pagar tutor
-	*/
 
-	@Test
-	public void testPagarTutor() {
-		sistema.cadastrarAluno("nome", "111111111", 123456789, "(83)9999999", "email@email.com");
-		sistema.tornarTutor("111111111", "disciplina", 1);
-		sistema.pagarTutor("111111111", 1);
-	}
 }

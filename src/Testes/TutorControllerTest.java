@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ClassesBase.Tutor;
-import ClassesBase.TutorController;
+import Controllers.TutorController;
 import junit.framework.Assert;
 
 public class TutorControllerTest {

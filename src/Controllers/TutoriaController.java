@@ -1,4 +1,7 @@
-package ClassesBase;
+package Controllers;
+
+import ClassesBase.Aluno;
+import ClassesBase.Tutor;
 
 public class TutoriaController {
 	TutorController tc;

@@ -1,7 +1,12 @@
-package ClassesBase;
+package Controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ClassesBase.Ajuda;
+import ClassesBase.AjudaOnline;
+import ClassesBase.AjudaPresencial;
+import ClassesBase.Tutor;
 
 public class AjudaController {
 

@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ClassesBase.Aluno;
-import ClassesBase.AlunoController;
+import Controllers.AlunoController;
 
 public class AlunoControllerTest {
 	AlunoController ac ;
