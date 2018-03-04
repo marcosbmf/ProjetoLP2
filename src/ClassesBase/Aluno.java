@@ -18,9 +18,12 @@ public class Aluno implements Comparable<Aluno> {
 	private String telefone;
 	private String eMail;
 	private double notaAvalicao;
+	private int idCriacao;
 
 
-    /**
+
+
+	/**
    * Constro� um aluno a partir do nome, da matricula, do c�digo do curso,  do telefone dele, do seu email, e da sua nota de avalia�ao.
    * 
    *
@@ -32,7 +35,7 @@ public class Aluno implements Comparable<Aluno> {
    * @param notaAvaliacao
    * 
    */
-	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, double notaAvaliacao) {
+	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, int idCriacao) {
 		if (stringVaziaOuNula(nome)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
 		} else if (stringVaziaOuNula(eMail)) {
@@ -41,8 +44,6 @@ public class Aluno implements Comparable<Aluno> {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Matricula invalida");
 		} else if (telefone == null) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Telefone invalido");
-		} else if (notaAvaliacao < 0 || notaAvaliacao > 5) {
-			throw new IllegalArgumentException("Erro no cadastro de aluno: Nota de Avalicao invalida");
 		} else if (codigoCurso <= 0) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Codigo de Curso invalido");
 		}
@@ -52,12 +53,8 @@ public class Aluno implements Comparable<Aluno> {
 		this.codigoCurso = codigoCurso;
 		this.telefone = telefone;
 		this.eMail = eMail;
-		this.notaAvalicao = notaAvaliacao;
-	}
-	
-
-	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		this(nome, matricula, codigoCurso, telefone, email, 5.0);
+		this.notaAvalicao = 5;
+		this.idCriacao = idCriacao;
 	}
 	
 	/**
@@ -94,6 +91,10 @@ public class Aluno implements Comparable<Aluno> {
 	 */
 	public String getMatricula() {
 		return matricula;
+	}
+	
+    public int getIdCriacao() {
+		return idCriacao;
 	}
 
 	/**

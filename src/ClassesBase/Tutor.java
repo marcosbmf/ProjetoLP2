@@ -42,7 +42,7 @@ public class Tutor  implements Comparable<Tutor>{
 		this.notaAvaliacao = 0.0;
 		this.nivel = "Tutor";
 		this.agenda = new Agenda();
-		this.idCriacao = idCriacao;
+		this.idCriacao = aluno.getIdCriacao();
 	}
 	
 	/**
