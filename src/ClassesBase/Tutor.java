@@ -39,7 +39,7 @@ public class Tutor  implements Comparable<Tutor>{
 		this.aluno = aluno ;
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
-		this.notaAvaliacao = 4.0;
+		this.notaAvaliacao = 0.0;
 		this.nivel = "Tutor";
 		this.agenda = new Agenda();
 		this.idCriacao = idCriacao;

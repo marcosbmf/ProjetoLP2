@@ -83,7 +83,8 @@ public class AjudaController {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
 		}
 		if(!this.ajudas.get(idAjuda - 1 ).getAvaliada()) {
-			return this.ajudas.get(idAjuda - 1 ).calculaPontuacaoFinal(nota);
+			return  this.ajudas.get(idAjuda - 1 ).calculaPontuacaoFinal(nota);
+			
 		}
 		else {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: Ajuda ja avaliada");

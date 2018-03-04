@@ -1,5 +1,7 @@
 package ClassesBase;
 
+import java.text.DecimalFormat;
+
 public abstract class Ajuda {
 	
 	protected String matrAluno;
@@ -27,6 +29,7 @@ public abstract class Ajuda {
 		return disciplina;
 	}
 	
+	
 	public abstract String pegarTutor();
 	
 	public abstract String getInfoAjuda(String atributo);
@@ -40,7 +43,8 @@ public abstract class Ajuda {
 		this.avaliada = true ;
 		double pontuacaoFinal =  (this.tutor.getNotaAvaliacao()*5  + nota)/6  ;
 		this.tutor.setPontuacao(pontuacaoFinal);
-		return this.tutor.getNotaAvaliacao() + "" ;
+	
+		return String.format("%.2f", this.tutor.getNotaAvaliacao()) + "" ;
 	}
 	public int getId() {
 		return this.id;

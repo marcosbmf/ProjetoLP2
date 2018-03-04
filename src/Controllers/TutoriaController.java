@@ -116,7 +116,7 @@ public class TutoriaController {
 		return ac.avaliarTutor(idAjuda, nota);
 	}
 
-	public double pegarNota(String matriculaTutor) {
+	public String pegarNota(String matriculaTutor) {
 		return tc.pegarNota(matriculaTutor);
 	}
 	

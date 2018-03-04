@@ -160,7 +160,7 @@ public class Facade {
 		return tc.avaliarTutor(idAjuda,nota);
 	}
 	
-	public double pegarNota(String matriculaTutor) {
+	public String pegarNota(String matriculaTutor) {
 		return tc.pegarNota(matriculaTutor);
 	}
 	
