@@ -20,7 +20,9 @@ public class AlunoTest {
 
 
 
-	
+	/**
+	 * Testa se constroi com nome null
+	 */
 	@Test(expected = NullPointerException.class)
 	public void testaCriacaoAlunoNomeNull() {
 		aluno = new Aluno(null, "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br",2);

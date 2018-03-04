@@ -1,13 +1,12 @@
 package Testes;
 
-import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 
 import ClassesBase.Aluno;
 import ClassesBase.Tutor;
-import junit.framework.Assert;
 
 public class TutorTest {
 

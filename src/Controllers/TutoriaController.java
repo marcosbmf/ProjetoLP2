@@ -1,10 +1,14 @@
 package Controllers;
 
-import java.text.DecimalFormat;
-
 import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
+/**
+ * Classe que controla funções referentes à tutoria como manuseio de tutores e criação de pedidos de ajuda.
+ * Conversa com Tutor Controller e Ajuda Controller.
+ * @author Marcos Barros
+ *
+ */
 public class TutoriaController {
 	TutorController tc;
 	AjudaController ac;

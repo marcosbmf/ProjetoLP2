@@ -1,6 +1,5 @@
 package ClassesBase;
 
-import java.text.DecimalFormat;
 
 public abstract class Ajuda {
 
