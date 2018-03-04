@@ -80,15 +80,17 @@ public class AjudaController {
 	}
 
 	public void avaliarTutor(int idAjuda, int nota) {
-		if (this.ajudas.size() < idAjuda - 1) {
-			throw new IllegalArgumentException("Erro na avaliacao de tutor: id nao encontrado ");
-		}
 		if (nota < 0) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser menor que 0");
 		}
 		if (nota > 5) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
 		}
+		
+		if (this.ajudas.size() < idAjuda - 1) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: id nao encontrado ");
+		}
+	
 		if (!this.ajudas.get(idAjuda - 1).getAvaliada()) {
 			this.ajudas.get(idAjuda - 1).calculaPontuacaoFinal(nota);
 		} else {

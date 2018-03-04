@@ -140,7 +140,7 @@ public class AlunoControllerTest {
 	 */
 	@Test
 	public void testGetInfoAvaliacao() {
-		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com", 5);
+		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com");
 		Assert.assertEquals("5.0", ac.getinfoAluno("lovegalore", "Avaliacao"));
 
 	}
@@ -152,7 +152,7 @@ public class AlunoControllerTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetInfoInvalida() {
-		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com", 5);
+		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com");
 		ac.getinfoAluno("lovegalore", "Olhos");
 	}
 
@@ -163,7 +163,7 @@ public class AlunoControllerTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetInfoMatriculaInvalida() {
-		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com", 5);
+		ac.cadastrarAluno("clairo", "lovegalore", 666, "666", "666@666.com");
 		ac.getinfoAluno("invalida", "Nome");
 	}
 

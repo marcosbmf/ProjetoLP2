@@ -42,7 +42,7 @@ public class Tutor implements Comparable<Tutor> {
 		this.aluno = aluno;
 		this.disciplinas = new ArrayList<>();
 		this.disciplinas.add(new Disciplina(disciplina, proficiencia));
-		this.notaAvaliacao = 0;
+		this.notaAvaliacao = 4.00;
 		this.nivel = "Tutor";
 		this.agenda = new Agenda();
 		this.idCriacao = aluno.getIdCriacao();
@@ -109,8 +109,7 @@ public class Tutor implements Comparable<Tutor> {
 	}
 
 	public void setNotaAvaliacao(double nota) {
-		double notaFinal = (double) (((int) (nota * 100)) / 100.0);
-		this.notaAvaliacao = notaFinal;
+		this.notaAvaliacao = nota;
 	}
 
 	/**

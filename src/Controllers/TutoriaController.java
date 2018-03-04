@@ -118,7 +118,7 @@ public class TutoriaController {
 	public String pegarNota(String matriculaTutor) {
 		return String.format("%,.2f", tc.pegarNota(matriculaTutor));
 	}
-
+	
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
 	}

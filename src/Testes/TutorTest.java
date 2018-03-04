@@ -12,7 +12,7 @@ import junit.framework.Assert;
 public class TutorTest {
 
 	Tutor tutor;
-
+	Aluno aluno = new Aluno("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br" ,1);
 	/**
 	 * 
 	 * Testa O funcionamento do construtor de TutorController
@@ -20,7 +20,7 @@ public class TutorTest {
 	 */
 	@Before
 	public void testConstrutor() {
-		tutor = new Tutor("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5, "lp2", 10);
+		tutor = new Tutor(aluno,  "lp2",5, 10);
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class TutorTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDisciplinaNomeVazio() {
-		tutor = new Tutor("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5, "", 10);
+		tutor = new Tutor(aluno,"",5, 10);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class TutorTest {
 	 */
 	@Test(expected = NullPointerException.class)
 	public void testDisciplinaNomeNull() {
-		tutor = new Tutor("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5, null, 10);
+		tutor = new Tutor(aluno, null,5, 10);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class TutorTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testProfZero() {
-		tutor = new Tutor("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5, "lp2", 0);
+		tutor = new Tutor(aluno,  "lp2",0, 2);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class TutorTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testProfNegativa() {
-		tutor = new Tutor("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5, "lp2", -666);
+		tutor = new Tutor(aluno,"lp2", -666 , 666);
 	}
 
 	/**
