@@ -4,13 +4,13 @@ package ClassesBase;
  * 
  * @author Marcos Barros
  * 
- * Classe que representa uma disciplina, tendo um nome e a proficiencia. 
+ *         Classe que representa uma disciplina, tendo um nome e a proficiencia.
  *
  */
 public class Disciplina {
 	private String nome;
 	private int proficiencia;
-	
+
 	/**
 	 * 
 	 * ConstroÌ uma disciplina a partir do nome a da proficiencia nela.
@@ -21,9 +21,11 @@ public class Disciplina {
 	 */
 	public Disciplina(String nome, int proficiencia) {
 		if (this.stringVaziaOuNula(nome)) {
-			throw new IllegalArgumentException("Erro no cadastro de disciplina: Nome da disciplina n√£o pode ser vazia ou nula.");
+			throw new IllegalArgumentException(
+					"Erro no cadastro de disciplina: Nome da disciplina n√£o pode ser vazia ou nula.");
 		} else if (proficiencia <= 0) {
-			throw new IllegalArgumentException("Erro no cadastro de disciplina: proficiencia n√£o pode ser igual ou menor a 0.");
+			throw new IllegalArgumentException(
+					"Erro no cadastro de disciplina: proficiencia n√£o pode ser igual ou menor a 0.");
 		}
 		this.nome = nome;
 		this.proficiencia = proficiencia;
@@ -42,21 +44,21 @@ public class Disciplina {
 	public int getProficiencia() {
 		return proficiencia;
 	}
-	
+
 	/**
-	 * Este mÈtodo retorna a String que representa uma disciplina 
-	 * No formato: nome - proficiencia
-	 * 	
+	 * Este mÈtodo retorna a String que representa uma disciplina No formato: nome -
+	 * proficiencia
+	 * 
 	 * @return representaÁ„o em String de uma disciplina
 	 */
 	@Override
 	public String toString() {
 		return this.nome + " - " + this.proficiencia;
 	}
-	
-	
+
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, È vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, È
+	 * vazia ou nula.
 	 * 
 	 * @param texto
 	 */

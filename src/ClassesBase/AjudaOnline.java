@@ -2,8 +2,8 @@ package ClassesBase;
 
 public class AjudaOnline extends Ajuda {
 
-	public AjudaOnline(String matrAluno, String disciplina, Tutor tutor,int id) {
-		super(matrAluno, disciplina, tutor ,id);
+	public AjudaOnline(String matrAluno, String disciplina, Tutor tutor, int id) {
+		super(matrAluno, disciplina, tutor, id);
 	}
 
 	@Override
@@ -17,10 +17,10 @@ public class AjudaOnline extends Ajuda {
 			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : atributo nao encontrado");
 		}
 	}
-	
+
 	@Override
 	public String pegarTutor() {
-		return "Tutor - " + this.tutor.getMatricula()+ ", disciplina- " + this.disciplina;
+		return "Tutor - " + this.tutor.getMatricula() + ", disciplina- " + this.disciplina;
 	}
 
 }

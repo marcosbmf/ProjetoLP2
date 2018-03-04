@@ -10,15 +10,14 @@ public class AgendaTest {
 
 	Agenda agenda;
 
-	
 	/**
-	* Testa O funcionamento do construtor de agenda
-	*/
+	 * Testa O funcionamento do construtor de agenda
+	 */
 	@Before
 	public void testConstrutor() {
 		agenda = new Agenda();
 	}
-	
+
 	/**
 	 * Testa o funcionamento do metodo cadastrar horario
 	 */
@@ -35,7 +34,6 @@ public class AgendaTest {
 		agenda.cadastrarHorario("", "ter");
 	}
 
-
 	/**
 	 * Testa se cadastra com horario branco
 	 */
@@ -44,7 +42,6 @@ public class AgendaTest {
 		agenda.cadastrarHorario("   ", "dia");
 	}
 
-
 	/**
 	 * Testa se cadastra com horario nulo
 	 */
@@ -52,7 +49,6 @@ public class AgendaTest {
 	public void testCadastraHorarioNull() {
 		agenda.cadastrarHorario(null, "dia");
 	}
-
 
 	/**
 	 * Testa se cadastra com dia vazio
@@ -96,7 +92,6 @@ public class AgendaTest {
 		agenda.cadastrarHorario("15:00", "ter");
 		Assert.assertEquals(false, agenda.consultaHorario("15:00", "seg"));
 	}
-
 
 	/**
 	 * Testa se consulta com hora vazia

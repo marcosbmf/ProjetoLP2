@@ -1,6 +1,5 @@
 package ClassesBase;
 
-
 /**
  * Classe que representa um aluno.
  * 
@@ -20,21 +19,19 @@ public class Aluno implements Comparable<Aluno> {
 	private double notaAvalicao;
 	private int idCriacao;
 
-
-
-
 	/**
-   * Constro� um aluno a partir do nome, da matricula, do c�digo do curso,  do telefone dele, do seu email, e da sua nota de avalia�ao.
-   * 
-   *
-   * @param nome
-   * @param matricula
-   * @param codigoCurso
-   * @param telefone
-   * @param eMail
-   * @param notaAvaliacao
-   * 
-   */
+	 * Constro� um aluno a partir do nome, da matricula, do c�digo do curso, do
+	 * telefone dele, do seu email, e da sua nota de avalia�ao.
+	 * 
+	 *
+	 * @param nome
+	 * @param matricula
+	 * @param codigoCurso
+	 * @param telefone
+	 * @param eMail
+	 * @param notaAvaliacao
+	 * 
+	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, int idCriacao) {
 		if (stringVaziaOuNula(nome)) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
@@ -47,7 +44,7 @@ public class Aluno implements Comparable<Aluno> {
 		} else if (codigoCurso <= 0) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Codigo de Curso invalido");
 		}
-		
+
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
@@ -56,23 +53,23 @@ public class Aluno implements Comparable<Aluno> {
 		this.notaAvalicao = 5;
 		this.idCriacao = idCriacao;
 	}
-	
+
 	/**
 	 * Metodo responsavel por organizar as informa��es de contato do aluno.
 	 * 
 	 * @return String contendo apenas o email ou o email + telefone.
 	 */
-	public  String contato() {
+	public String contato() {
 		if (this.telefone.trim().equals("")) {
 			return this.eMail;
 		}
 		return this.telefone + " - " + this.eMail;
 	}
-	
+
 	/**
-	 * Este m�todo retorna a String que representa um aluno 
-	 * No formato: matricula - nome - codigocurso - telefone (se tiver) - email 
-	 * 	
+	 * Este m�todo retorna a String que representa um aluno No formato: matricula
+	 * - nome - codigocurso - telefone (se tiver) - email
+	 * 
 	 * @return representa��o em String de um aluno.
 	 */
 	public String toString() {
@@ -92,8 +89,8 @@ public class Aluno implements Comparable<Aluno> {
 	public String getMatricula() {
 		return matricula;
 	}
-	
-    public int getIdCriacao() {
+
+	public int getIdCriacao() {
 		return idCriacao;
 	}
 
@@ -125,26 +122,29 @@ public class Aluno implements Comparable<Aluno> {
 		return notaAvalicao;
 	}
 
-	 /**
+	/**
 	 * Metodo responsavel por atualizar a nota de avaliacao do aluno para uma nova.
 	 *
-	 *@param novaAvaliacao, nova nota a ser atribuida
+	 * @param novaAvaliacao,
+	 *            nova nota a ser atribuida
 	 */
 	public void mudaAvaliacao(double novaAvaliacao) {
 		this.notaAvalicao = novaAvaliacao;
 	}
-	
-	 /**
+
+	/**
 	 * Metodo responsavel comparar os nomes dos alunos.
 	 *
-	 *@param Aluno, outro aluno.
+	 * @param Aluno,
+	 *            outro aluno.
 	 */
 	public int compareTo(Aluno o) {
 		return this.nome.compareTo(o.nome);
 	}
-	
+
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, � vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, �
+	 * vazia ou nula.
 	 * 
 	 * @param texto
 	 */

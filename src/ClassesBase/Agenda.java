@@ -8,28 +8,26 @@ import java.util.Map;
 
 /***
  * 
- * @author Thyago Pereira da Silva - 117110164 
+ * @author Thyago Pereira da Silva - 117110164
  * 
- * 	Classe responsavel pela
- *  representacao de uma agenda com disponibilidade de horarios , locais
- *  e dias para tutoria .
+ *         Classe responsavel pela representacao de uma agenda com
+ *         disponibilidade de horarios , locais e dias para tutoria .
  */
 public class Agenda {
 
-	private List<String> locais; 
-	private Map<String, ArrayList<LocalTime>> horarios; 
+	private List<String> locais;
+	private Map<String, ArrayList<LocalTime>> horarios;
 
-	
 	/**
-	* Constroi uma agenda e inicializa as colecoes dos locais e horarios.
-	*  
-	*/
+	 * Constroi uma agenda e inicializa as colecoes dos locais e horarios.
+	 * 
+	 */
 	public Agenda() {
-		
+
 		this.locais = new ArrayList<String>();
 		this.horarios = new HashMap<String, ArrayList<LocalTime>>();
 	}
-	
+
 	/**
 	 * Metodo responsavel por cadastrar um dia da semana e um horario para a
 	 * tutoria.
@@ -99,7 +97,7 @@ public class Agenda {
 		if (stringVaziaOuNula(dia)) {
 			throw new IllegalArgumentException("Erro no cadastrar horario: dia nao pode ser vazio ou em branco");
 		}
-		
+
 		if (!this.horarios.containsKey(dia)) {
 			return false;
 		}
@@ -130,9 +128,10 @@ public class Agenda {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, é vazia ou nula.
+	 * Metodo responsavel por verificar se uma string recebida como parametro, é
+	 * vazia ou nula.
 	 * 
 	 * @param texto
 	 */

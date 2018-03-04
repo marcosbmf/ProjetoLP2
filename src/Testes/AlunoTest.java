@@ -11,13 +11,13 @@ public class AlunoTest {
 	Aluno aluno;
 
 	/**
-	* Testa O funcionamento do construtor de aluno
-	*/
+	 * Testa O funcionamento do construtor de aluno
+	 */
 	@Before
 	public void testaCriacaoAlunoValido() {
 		aluno = new Aluno("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br");
 	}
-	
+
 	/**
 	 * Testa se constroi aluno com avaliacao
 	 */
@@ -25,7 +25,7 @@ public class AlunoTest {
 	public void testaCriacaoAlunoValidoComAvaliacao() {
 		aluno = new Aluno("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 4.4);
 	}
-	
+
 	/**
 	 * Testa se constroi com avaliacao zerada
 	 */
@@ -43,13 +43,13 @@ public class AlunoTest {
 	}
 
 	/**
-	 * Testa se constroi com avaliacao cinco. 
+	 * Testa se constroi com avaliacao cinco.
 	 */
 	@Test
 	public void testaCriacaoAlunoComAvaliacaoCinco() {
 		aluno = new Aluno("MARCOS", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br", 5);
 	}
-	
+
 	/**
 	 * Testa se constroi com avaliacao maior que cinco
 	 */
@@ -73,7 +73,7 @@ public class AlunoTest {
 	public void testaCriacaoAlunoNomeVazio() {
 		aluno = new Aluno("   ", "117110596", 6669, "838383838383", "mbf@ccc.ufcg.edu.br");
 	}
-	
+
 	/**
 	 * Testa se constroi com codigo de curso zerado
 	 */
@@ -146,7 +146,7 @@ public class AlunoTest {
 		aluno = new Aluno("MARCOS", "117110596", 6669, "(83)9996-6699", "mbf@ccc.ufcg.edu.br");
 		Assert.assertEquals("117110596 - MARCOS - 6669 - (83)9996-6699 - mbf@ccc.ufcg.edu.br", aluno.toString());
 	}
-	
+
 	/**
 	 * Testa o ToString de aluno sem telefone
 	 */

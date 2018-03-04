@@ -243,6 +243,7 @@ public class TutorController {
 
 	/**
 	 * Método privado que retorna a lista de iterável de todos os tutores.
+	 * 
 	 * @return
 	 */
 	private List<Tutor> listaTutores() {
@@ -250,9 +251,10 @@ public class TutorController {
 		tutores.addAll(this.tutores.values());
 		return tutores;
 	}
-	
+
 	/**
-	 * Método que compara dois tutores pela sua proficiência em uma disciplina e usa a ordem de criação como critério de desempate.
+	 * Método que compara dois tutores pela sua proficiência em uma disciplina e usa
+	 * a ordem de criação como critério de desempate.
 	 * 
 	 * @param t1
 	 * @param t2
@@ -273,10 +275,10 @@ public class TutorController {
 		}
 	}
 
-	public String pegarNota(String matriculaTutor) {
-		return this.tutores.get(matriculaTutor).getNotaAvaliacao() + "";
+	public double pegarNota(String matriculaTutor) {
+		return this.tutores.get(matriculaTutor).getNotaAvaliacao();
 	}
-	
+
 	public String pegarNivel(String matriculaTutor) {
 		return this.tutores.get(matriculaTutor).getNivel();
 	}

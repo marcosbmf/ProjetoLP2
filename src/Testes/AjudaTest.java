@@ -25,8 +25,7 @@ public class AjudaTest {
 		ajuda.calculaPontuacaoFinal(4);
 		Assert.assertEquals(4.0, tutor.getNotaAvaliacao());
 	}
-	
-	
+
 	@Test
 	public void testNivel() {
 		ajuda = new AjudaOnline("12345", "Life is Strange", tutor, 1);

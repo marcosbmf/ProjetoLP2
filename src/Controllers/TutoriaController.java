@@ -1,17 +1,19 @@
 package Controllers;
 
+import java.text.DecimalFormat;
+
 import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
 public class TutoriaController {
 	TutorController tc;
 	AjudaController ac;
-	
+
 	public TutoriaController() {
 		tc = new TutorController();
 		ac = new AjudaController();
 	}
-	
+
 	/**
 	 * Metodo responsavel por cadastrar um tutor no sistema.
 	 * 
@@ -19,8 +21,8 @@ public class TutoriaController {
 	 * @param disciplina
 	 * @param proficiencia
 	 */
-	public void tornarTutor(Aluno aluno,String disciplina, int proficiencia) {
-		tc.tornarTutor(aluno ,disciplina, proficiencia);
+	public void tornarTutor(Aluno aluno, String disciplina, int proficiencia) {
+		tc.tornarTutor(aluno, disciplina, proficiencia);
 	}
 
 	/**
@@ -90,36 +92,33 @@ public class TutoriaController {
 		return tc.consultaLocal(email, local);
 	}
 
-	
-	public int pedirAjudaPresencial (String matrAluno, String disciplina, String horario, String dia, String localInteresse) {
+	public int pedirAjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
+			String localInteresse) {
 		Tutor tutor = tc.getTutorDisponivel(disciplina, horario, dia, localInteresse);
 		return ac.pedirAjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse, tutor);
 	}
-	
-	
-	public int pedirAjudaOnline (String matrAluno, String disciplina) {
+
+	public int pedirAjudaOnline(String matrAluno, String disciplina) {
 		Tutor tutor = tc.getTutorDisponivel(disciplina);
 		return ac.pedirAjudaOnline(matrAluno, disciplina, tutor);
 	}
-	
-	
+
 	public String pegarTutor(int idAjuda) {
 		return ac.pegarTutor(idAjuda);
 	}
-	
-	
+
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		return ac.getInfoAjuda(idAjuda, atributo);
 	}
 
-	public String avaliarTutor(int idAjuda, int nota) {
-		return ac.avaliarTutor(idAjuda, nota);
+	public void avaliarTutor(int idAjuda, int nota) {
+		ac.avaliarTutor(idAjuda, nota);
 	}
 
 	public String pegarNota(String matriculaTutor) {
-		return tc.pegarNota(matriculaTutor);
+		return String.format("%,.2f", tc.pegarNota(matriculaTutor));
 	}
-	
+
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
 	}

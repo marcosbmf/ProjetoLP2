@@ -64,8 +64,8 @@ public class Facade {
 	 * @param disciplina
 	 * @param proficiencia
 	 */
-	public void tornarTutor(String matricula,String disciplina, int proficiencia) {
-		tc.tornarTutor(ac.getAluno(matricula),disciplina, proficiencia);
+	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
+		tc.tornarTutor(ac.getAluno(matricula), disciplina, proficiencia);
 
 	}
 
@@ -136,34 +136,31 @@ public class Facade {
 		return tc.consultaLocal(email, local);
 	}
 
-	public int pedirAjudaPresencial (String matrAluno, String disciplina, String horario, String dia, String localInteresse) {
+	public int pedirAjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
+			String localInteresse) {
 		return tc.pedirAjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse);
 	}
-	
-	
-	public int pedirAjudaOnline (String matrAluno, String disciplina) {
+
+	public int pedirAjudaOnline(String matrAluno, String disciplina) {
 		return tc.pedirAjudaOnline(matrAluno, disciplina);
 	}
-	
-	
+
 	public String pegarTutor(int idAjuda) {
 		return tc.pegarTutor(idAjuda);
 	}
-	
-	
+
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		return tc.getInfoAjuda(idAjuda, atributo);
 	}
-	
-	
-	public String avaliarTutor(int idAjuda , int nota) {
-		return tc.avaliarTutor(idAjuda,nota);
+
+	public void avaliarTutor(int idAjuda, int nota) {
+		tc.avaliarTutor(idAjuda, nota);
 	}
-	
+
 	public String pegarNota(String matriculaTutor) {
 		return tc.pegarNota(matriculaTutor);
 	}
-	
+
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
 	}

@@ -6,8 +6,8 @@ public class AjudaPresencial extends Ajuda {
 	String dia;
 	String localInteresse;
 
-	public AjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
-			String localInteresse, Tutor tutor , int id) {
+	public AjudaPresencial(String matrAluno, String disciplina, String horario, String dia, String localInteresse,
+			Tutor tutor, int id) {
 		super(matrAluno, disciplina, tutor, id);
 		this.horario = horario;
 		this.dia = dia;
@@ -31,9 +31,10 @@ public class AjudaPresencial extends Ajuda {
 			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : atributo nao encontrado");
 		}
 	}
-	
+
 	@Override
 	public String pegarTutor() {
-		return "Tutor - " + this.tutor.getMatricula() + ", horario - " + this.horario + ", dia - " + this.dia + ", local - " + this.localInteresse + ", disciplina - " + this.disciplina;
+		return "Tutor - " + this.tutor.getMatricula() + ", horario - " + this.horario + ", dia - " + this.dia
+				+ ", local - " + this.localInteresse + ", disciplina - " + this.disciplina;
 	}
 }
