@@ -9,7 +9,7 @@ public class Caixa {
 	}
 
 	public void setDinheiro_sistema(double dinheiro_sistema) {
-		this.dinheiro_sistema = dinheiro_sistema;
+		this.dinheiro_sistema += dinheiro_sistema;
 	}
 
 	public double getDinheiro_sistema() {

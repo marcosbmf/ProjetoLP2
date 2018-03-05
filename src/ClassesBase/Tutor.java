@@ -209,7 +209,7 @@ public class Tutor implements Comparable<Tutor> {
 	}
 
 	public void setDinheiro(double dinheiro) {
-		this.dinheiro = (int) dinheiro;
+		this.dinheiro += (int) dinheiro;
 	}
 
 }

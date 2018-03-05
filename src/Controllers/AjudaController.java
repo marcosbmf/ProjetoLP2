@@ -143,11 +143,10 @@ public class AjudaController {
 		if (nota < 0) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser menor que 0");
 		}
-		if (nota > 5) {
+		else if (nota > 5) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
 		}
-
-		if (this.ajudas.size() < idAjuda) {
+		else  	if (this.ajudas.size() < idAjuda) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: id nao encontrado ");
 		}
 
