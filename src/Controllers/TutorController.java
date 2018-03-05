@@ -307,13 +307,13 @@ public class TutorController {
 		double taxa_tutor;
 		if (pegarNivel(matriculaTutor).equals("TOP")) {
 			taxa_tutor = 0.9 + ((nota - 4.5) * 0.1);
-			total_sistema = (1 - taxa_tutor) * totalCentavos;
+			total_sistema = Math.ceil((1 - taxa_tutor) * totalCentavos);
 			total_tutor = totalCentavos - total_sistema;
 			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
 			this.cx.setDinheiro_sistema(total_sistema);
 		} else if (pegarNivel(matriculaTutor).equals("Tutor")) {
 			taxa_tutor = 0.8;
-			total_sistema = Math.floor((1 - taxa_tutor) * totalCentavos);
+			total_sistema = (1 - taxa_tutor) * totalCentavos;
 			total_tutor = totalCentavos - total_sistema;
 			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
 			this.cx.setDinheiro_sistema(total_sistema);
