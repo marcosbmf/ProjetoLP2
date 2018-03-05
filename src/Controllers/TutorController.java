@@ -274,11 +274,19 @@ public class TutorController {
 			}
 		}
 	}
-
+	/**
+	 * 
+	 * @param matriculaTutor - Matricula do tutor 
+	 * @return Nota atual de avaliacao do tutor. 
+	 */
 	public double pegarNota(String matriculaTutor) {
 		return this.tutores.get(matriculaTutor).getNotaAvaliacao();
 	}
-
+	/**
+	 * 
+	 * @param matriculaTutor - Matricula  do tutor. 
+	 * @return Nivel de avalicao do tutor.
+	 */ 
 	public String pegarNivel(String matriculaTutor) {
 		return this.tutores.get(matriculaTutor).getNivel();
 	}

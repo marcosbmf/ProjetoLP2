@@ -29,7 +29,7 @@ public class Aluno implements Comparable<Aluno> {
 	 * @param codigoCurso
 	 * @param telefone
 	 * @param eMail
-	 * @param notaAvaliacao
+	 * @param idCriacao
 	 * 
 	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String eMail, int idCriacao) {

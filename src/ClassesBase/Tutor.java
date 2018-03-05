@@ -34,6 +34,7 @@ public class Tutor implements Comparable<Tutor> {
 	 * @param notaAvaliacao
 	 * @param disciplina
 	 * @param proficiencia
+	 * @param idCriacao 
 	 * 
 	 */
 	public Tutor(Aluno aluno, String disciplina, int proficiencia, int idCriacao) {
