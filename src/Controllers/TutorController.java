@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import ClassesBase.Aluno;
+import ClassesBase.Caixa;
 import ClassesBase.Tutor;
 
 /**
@@ -18,6 +19,8 @@ import ClassesBase.Tutor;
  *
  */
 public class TutorController {
+
+	private Caixa cx = new Caixa();
 
 	private Map<String, Tutor> tutores;
 
@@ -281,5 +284,45 @@ public class TutorController {
 
 	public String pegarNivel(String matriculaTutor) {
 		return this.tutores.get(matriculaTutor).getNivel();
+	}
+
+	public void doar(String matriculaTutor, int totalCentavos) {
+		String nivel_tutor = "";
+		double nota = 0;
+		double total_sistema;
+		double total_tutor = 0;
+		double diferenca;
+		double taxa_tutor;
+		nivel_tutor = pegarNivel(matriculaTutor);
+		nota = pegarNota(matriculaTutor);
+		if (nivel_tutor.equals("TOP")) {
+			taxa_tutor = 0.9 + ((nota - 4.5) * 0.1);
+			total_sistema = Math.floor(totalCentavos - total_tutor);
+			total_tutor = totalCentavos - total_sistema;
+			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
+			this.cx.setDinheiro_sistema(total_sistema);
+
+		} else if (nivel_tutor.equals("Tutor")) {
+			total_tutor = totalCentavos * 0.8;
+			total_sistema = totalCentavos - total_tutor;
+			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
+			this.cx.setDinheiro_sistema(total_sistema);
+		} else {
+			taxa_tutor = 0.4 + ((nota - 3.0) * 0.1);
+			total_sistema = Math.floor(totalCentavos - total_tutor);
+			total_tutor = totalCentavos - total_sistema;
+			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
+			this.cx.setDinheiro_sistema(total_sistema);
+
+		}
+
+	}
+
+	public int totalDinheiroTutor(String emailTutor) {
+		return (int) this.tutores.get(procuraTutor(emailTutor)).getDinheiro();
+	}
+
+	public int totalDinheiroSistema() {
+		return (int) cx.getDinheiro_sistema();
 	}
 }

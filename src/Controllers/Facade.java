@@ -165,4 +165,17 @@ public class Facade {
 		return tc.pegarNivel(matriculaTutor);
 	}
 
+	public void doar(String matriculaTutor, int totalCentavos) {
+		tc.doar(matriculaTutor, totalCentavos);
+
+	}
+
+	public int totalDinheiroTutor(String emailTutor) {
+		return tc.totalDinheiroTutor(emailTutor);
+	}
+
+	public int totalDinheiroSistema() {
+		return tc.totalDinheiroSistema();
+	}
+
 }

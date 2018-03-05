@@ -4,8 +4,10 @@ import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
 /**
- * Classe que controla funções referentes à tutoria como manuseio de tutores e criação de pedidos de ajuda.
- * Conversa com Tutor Controller e Ajuda Controller.
+ * Classe que controla funções referentes à tutoria como manuseio de tutores e
+ * criação de pedidos de ajuda. Conversa com Tutor Controller e Ajuda
+ * Controller.
+ * 
  * @author Marcos Barros
  *
  */
@@ -122,8 +124,21 @@ public class TutoriaController {
 	public String pegarNota(String matriculaTutor) {
 		return String.format("%,.2f", tc.pegarNota(matriculaTutor));
 	}
-	
+
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
+	}
+
+	public void doar(String matriculaTutor, int totalCentavos) {
+		tc.doar(matriculaTutor, totalCentavos);
+
+	}
+
+	public int totalDinheiroTutor(String emailTutor) {
+		return tc.totalDinheiroTutor(emailTutor);
+	}
+
+	public int totalDinheiroSistema() {
+		return tc.totalDinheiroSistema();
 	}
 }

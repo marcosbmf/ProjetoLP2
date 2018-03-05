@@ -19,6 +19,9 @@ public class Tutor implements Comparable<Tutor> {
 	private Agenda agenda;
 	private int idCriacao;
 	private String nivel;
+	private int dinheiro;
+
+
 
 	/**
 	 * Constro� um tutor a partir do nome, da matricula, do c�digo do curso, do
@@ -198,6 +201,14 @@ public class Tutor implements Comparable<Tutor> {
 	public String getNivel() {
 		this.setNivel();
 		return this.nivel;
+	}
+	
+	public double getDinheiro() {
+		return dinheiro;
+	}
+
+	public void setDinheiro(double dinheiro) {
+		this.dinheiro = (int) dinheiro;
 	}
 
 }
