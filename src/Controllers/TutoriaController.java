@@ -160,9 +160,7 @@ public class TutoriaController {
 	public String pegarNota(String matriculaTutor) {
 		return String.format("%,.2f", tc.pegarNota(matriculaTutor));
 	}
-<<<<<<< HEAD
 
-=======
 	
 	/**
 	 * 
@@ -170,7 +168,6 @@ public class TutoriaController {
 	 * @param matriculaTutor - Matricula do tutor.
 	 * @return Nivel de habilidade do tutor . 
 	 */
->>>>>>> cbba96ed8f23ccb03a4e141577db2686c245cc54
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
 	}

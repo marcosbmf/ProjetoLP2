@@ -295,29 +295,32 @@ public class TutorController {
 	}
 
 	public void doar(String matriculaTutor, int totalCentavos) {
-		String nivel_tutor = "";
-		double nota = 0;
+		if (totalCentavos < 0) {
+			throw new IllegalArgumentException("Erro na doacao para tutor: totalCentavos nao pode ser menor que zero");
+		}
+		else if (!this.tutores.containsKey(matriculaTutor)) {
+			throw new IllegalArgumentException("Erro na doacao para tutor: Tutor nao encontrado");
+		}
+		double nota = pegarNota(matriculaTutor);
 		double total_sistema;
-		double total_tutor = 0;
-		double diferenca;
+		double total_tutor;
 		double taxa_tutor;
-		nivel_tutor = pegarNivel(matriculaTutor);
-		nota = pegarNota(matriculaTutor);
-		if (nivel_tutor.equals("TOP")) {
+		if (pegarNivel(matriculaTutor).equals("TOP")) {
 			taxa_tutor = 0.9 + ((nota - 4.5) * 0.1);
-			total_sistema = Math.floor(totalCentavos - total_tutor);
+			total_sistema = Math.floor((1 - taxa_tutor) * totalCentavos);
 			total_tutor = totalCentavos - total_sistema;
 			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
 			this.cx.setDinheiro_sistema(total_sistema);
 
-		} else if (nivel_tutor.equals("Tutor")) {
-			total_tutor = totalCentavos * 0.8;
-			total_sistema = totalCentavos - total_tutor;
+		} else if (pegarNivel(matriculaTutor).equals("Tutor")) {
+			taxa_tutor = 0.8;
+			total_sistema = Math.floor((1 - taxa_tutor) * totalCentavos);
+			total_tutor = totalCentavos - total_sistema;
 			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
 			this.cx.setDinheiro_sistema(total_sistema);
 		} else {
-			taxa_tutor = 0.4 + ((nota - 3.0) * 0.1);
-			total_sistema = Math.floor(totalCentavos - total_tutor);
+			taxa_tutor = 0.4 + ((3.0 - nota) * 0.1);
+			total_sistema = Math.floor((1 - taxa_tutor) * totalCentavos);
 			total_tutor = totalCentavos - total_sistema;
 			this.tutores.get(matriculaTutor).setDinheiro(total_tutor);
 			this.cx.setDinheiro_sistema(total_sistema);
@@ -327,6 +330,12 @@ public class TutorController {
 	}
 
 	public int totalDinheiroTutor(String emailTutor) {
+		if (vaziaOuNula(emailTutor)) {
+			throw new IllegalArgumentException("Erro na consulta de total de dinheiro do tutor: emailTutor nao pode ser vazio ou nulo");
+		}
+		else if (procuraTutor(emailTutor).equals("")) {
+			throw new IllegalArgumentException("Erro na consulta de total de dinheiro do tutor: Tutor nao encontrado");
+		}
 		return (int) this.tutores.get(procuraTutor(emailTutor)).getDinheiro();
 	}
 
