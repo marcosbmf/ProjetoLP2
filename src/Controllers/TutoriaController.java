@@ -4,8 +4,8 @@ import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
 /**
- * Classe que controla funções referentes à tutoria como manuseio de tutores e
- * criação de pedidos de ajuda. Conversa com Tutor Controller e Ajuda
+ * Classe que controla funï¿½ï¿½es referentes ï¿½ tutoria como manuseio de tutores e
+ * criaï¿½ï¿½o de pedidos de ajuda. Conversa com Tutor Controller e Ajuda
  * Controller.
  * 
  * @author Marcos Barros
@@ -172,15 +172,38 @@ public class TutoriaController {
 		return tc.pegarNivel(matriculaTutor);
 	}
 
+	/**
+	 * 
+	 * Metodo responsavel por possibilitar a doacao para um tutor.
+	 * @param matriculaTutor - Matricula do tutor.
+	 * @param totalCentavos - Dinheiro doado em centavos.
+	 *  
+	 */
+	
 	public void doar(String matriculaTutor, int totalCentavos) {
 		tc.doar(matriculaTutor, totalCentavos);
 
 	}
+	
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de um tutor.
+	 * @param emailTutor - Email do tutor.
+	 * @return totalDinheiroTutor - Dinheiro total de um tutor especifico.
+	 *  
+	 */
 
 	public int totalDinheiroTutor(String emailTutor) {
 		return tc.totalDinheiroTutor(emailTutor);
 	}
 
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de sistema.
+	 * @return totalDinheiroTutor - Dinheiro total do sistema.
+	 *  
+	 */
+	
 	public int totalDinheiroSistema() {
 		return tc.totalDinheiroSistema();
 	}

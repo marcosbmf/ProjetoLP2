@@ -26,7 +26,8 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo responsavel por recuperar um aluno por meio da matricula na colecaoo.
+	 * Metodo responsavel por recuperar um aluno por meio da matricula na
+	 * colecaoo.
 	 * 
 	 * @param matricula
 	 * @return Representacao em String de um determinado aluno por meio de sua
@@ -70,7 +71,8 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo responsavel por recuperar um tutor por meio da matricula na colecaoo.
+	 * Metodo responsavel por recuperar um tutor por meio da matricula na
+	 * colecaoo.
 	 * 
 	 * @param matricula
 	 * 
@@ -125,8 +127,8 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se um determinado local esta cadastrado no
-	 * tutor para a tutoria
+	 * Metodo responsavel por verificar se um determinado local esta cadastrado
+	 * no tutor para a tutoria
 	 * 
 	 * @param local
 	 * 
@@ -149,7 +151,7 @@ public class Facade {
 	 *            - Dia no qual a ajuda deve ocorrer
 	 * @param localInteresse
 	 *            - local onde deve ocorrer a ajuda.
-	 * @return Numero de ajudas já cadastradas no sistema.
+	 * @return Numero de ajudas jï¿½ cadastradas no sistema.
 	 */
 	public int pedirAjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
 			String localInteresse) {
@@ -171,61 +173,103 @@ public class Facade {
 
 	/**
 	 * Metodo responsavel por retornar uma representacao em string do tutor
-	 * responsavel pela ajuda bem como com informações da ajuda.
-	 *  
-	 * @param idAjuda - identificador unico da ajuda. 
-	 * @return Representacao textual do tutor e da ajuda. 
+	 * responsavel pela ajuda bem como com informaï¿½ï¿½es da ajuda.
+	 * 
+	 * @param idAjuda
+	 *            - identificador unico da ajuda.
+	 * @return Representacao textual do tutor e da ajuda.
 	 */
 	public String pegarTutor(int idAjuda) {
 		return tc.pegarTutor(idAjuda);
 	}
-	
+
 	/**
 	 * 
-	 * @param idAjuda - Identificador unico da ajuda. 
-	 * @param atributo - Atributo da ajuda ao qual deseja-se recuperar 
-	 * @return   Informacao desejada sobre a ajuda. 
+	 * @param idAjuda
+	 *            - Identificador unico da ajuda.
+	 * @param atributo
+	 *            - Atributo da ajuda ao qual deseja-se recuperar
+	 * @return Informacao desejada sobre a ajuda.
 	 */
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		return tc.getInfoAjuda(idAjuda, atributo);
 	}
-	
+
 	/**
-	 * Metodo responsavel por estabelecer uma avaliacao ao tutor responsavel por determinada ajuda 
-	 * @param idAjuda - Identificador unico da ajuda.
-	 * @param nota - Nota dada ao tutor  0-5 .
+	 * Metodo responsavel por estabelecer uma avaliacao ao tutor responsavel por
+	 * determinada ajuda
+	 * 
+	 * @param idAjuda
+	 *            - Identificador unico da ajuda.
+	 * @param nota
+	 *            - Nota dada ao tutor 0-5 .
 	 */
 	public void avaliarTutor(int idAjuda, int nota) {
 		tc.avaliarTutor(idAjuda, nota);
 	}
-	
+
 	/**
-	 * Metodo responsavel por retornar a nota de avalicao atual de um determinado tutor . 
-	 * @param matriculaTutor - Matricula do tutor 
-	 * @return Nota de avalicao geral do tutor . 
+	 * Metodo responsavel por retornar a nota de avalicao atual de um
+	 * determinado tutor .
+	 * 
+	 * @param matriculaTutor
+	 *            - Matricula do tutor
+	 * @return Nota de avalicao geral do tutor .
 	 */
 	public String pegarNota(String matriculaTutor) {
 		return tc.pegarNota(matriculaTutor);
 	}
-	
+
 	/**
 	 * 
-	 * Metodo responsavel por retornar o nivel de um determinado tutor cadastrado no sistema.
-	 * @param matriculaTutor - Matricula do tutor.
-	 * @return Nivel de habilidade do tutor . 
+	 * Metodo responsavel por retornar o nivel de um determinado tutor
+	 * cadastrado no sistema.
+	 * 
+	 * @param matriculaTutor
+	 *            - Matricula do tutor.
+	 * @return Nivel de habilidade do tutor .
 	 */
 	public String pegarNivel(String matriculaTutor) {
 		return tc.pegarNivel(matriculaTutor);
 	}
+
+	/**
+	 * 
+	 * Metodo responsavel por possibilitar a doacao para um tutor.
+	 * 
+	 * @param matriculaTutor
+	 *            - Matricula do tutor.
+	 * @param totalCentavos
+	 *            - Dinheiro doado em centavos.
+	 * 
+	 */
 
 	public void doar(String matriculaTutor, int totalCentavos) {
 		tc.doar(matriculaTutor, totalCentavos);
 
 	}
 
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de um tutor.
+	 * 
+	 * @param emailTutor
+	 *            - Email do tutor.
+	 * @return totalDinheiroTutor - Dinheiro total de um tutor especifico.
+	 * 
+	 */
+
 	public int totalDinheiroTutor(String emailTutor) {
 		return tc.totalDinheiroTutor(emailTutor);
 	}
+
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de sistema.
+	 * 
+	 * @return totalDinheiroTutor - Dinheiro total do sistema.
+	 * 
+	 */
 
 	public int totalDinheiroSistema() {
 		return tc.totalDinheiroSistema();

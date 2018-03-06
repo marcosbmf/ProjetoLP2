@@ -199,8 +199,8 @@ public class TutorController {
 	}
 
 	/**
-	 * Método que retorna o melhor tutor disponível nas condições repassadas, sendo
-	 * o id de criação do tutor um método de desempate.
+	 * Mï¿½todo que retorna o melhor tutor disponï¿½vel nas condiï¿½ï¿½es repassadas, sendo
+	 * o id de criaï¿½ï¿½o do tutor um mï¿½todo de desempate.
 	 * 
 	 * @param disciplina
 	 * @param horario
@@ -224,8 +224,8 @@ public class TutorController {
 	}
 
 	/**
-	 * Método que retorna o melhor tutor disponível nas condições repassadas, sendo
-	 * o id de criação do tutor um método de desempate.
+	 * Mï¿½todo que retorna o melhor tutor disponï¿½vel nas condiï¿½ï¿½es repassadas, sendo
+	 * o id de criaï¿½ï¿½o do tutor um mï¿½todo de desempate.
 	 * 
 	 * @param disciplina
 	 * @return Objeto do tipo tutor.
@@ -245,7 +245,7 @@ public class TutorController {
 	}
 
 	/**
-	 * Método privado que retorna a lista de iterável de todos os tutores.
+	 * Mï¿½todo privado que retorna a lista de iterï¿½vel de todos os tutores.
 	 * 
 	 * @return
 	 */
@@ -256,8 +256,8 @@ public class TutorController {
 	}
 
 	/**
-	 * Método que compara dois tutores pela sua proficiência em uma disciplina e usa
-	 * a ordem de criação como critério de desempate.
+	 * Mï¿½todo que compara dois tutores pela sua proficiï¿½ncia em uma disciplina e usa
+	 * a ordem de criaï¿½ï¿½o como critï¿½rio de desempate.
 	 * 
 	 * @param t1
 	 * @param t2
@@ -293,6 +293,15 @@ public class TutorController {
 	public String pegarNivel(String matriculaTutor) {
 		return this.tutores.get(matriculaTutor).getNivel();
 	}
+	
+	
+	/**
+	 * 
+	 * Metodo responsavel por possibilitar a doacao para um tutor.
+	 * @param matriculaTutor - Matricula do tutor.
+	 * @param totalCentavos - Dinheiro doado em centavos.
+	 *  
+	 */
 
 	public void doar(String matriculaTutor, int totalCentavos) {
 		if (totalCentavos < 0) {
@@ -326,6 +335,15 @@ public class TutorController {
 		}
 
 	}
+	
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de um tutor.
+	 * @param emailTutor - Email do tutor.
+	 * @return totalDinheiroTutor - Dinheiro total de um tutor especifico.
+	 *  
+	 */
+
 
 	public int totalDinheiroTutor(String emailTutor) {
 		if (vaziaOuNula(emailTutor)) {
@@ -336,6 +354,13 @@ public class TutorController {
 		}
 		return (int) this.tutores.get(procuraTutor(emailTutor)).getDinheiro();
 	}
+	
+	/**
+	 * 
+	 * Metodo responsavel por retornar o dinheiro total de sistema.
+	 * @return totalDinheiroTutor - Dinheiro total do sistema.
+	 *  
+	 */
 
 	public int totalDinheiroSistema() {
 		return (int) cx.getDinheiro_sistema();
