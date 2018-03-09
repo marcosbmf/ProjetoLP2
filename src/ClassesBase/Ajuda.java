@@ -89,6 +89,8 @@ public abstract class Ajuda {
 			throw new IllegalArgumentException();
 		} else if (nota < 0) {
 			throw new IllegalArgumentException();
+		} else if (this.avaliada == true){
+			throw new IllegalArgumentException();
 		}
 		this.avaliada = true;
 		double pontuacaoFinal = (this.tutor.getNotaAvaliacao() * 5 + nota) / 6;
