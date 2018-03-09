@@ -2,8 +2,8 @@ package ClassesBase;
 
 /**
  * 
- * @author Marcos Barros Classe responsavel pela representação de uma ajuda
- *         pedida por um aluno ao sistema , de distribuição de alunos e tutores.
+ * @author Marcos Barros Classe responsavel pela representaï¿½ï¿½o de uma ajuda
+ *         pedida por um aluno ao sistema , de distribuiï¿½ï¿½o de alunos e tutores.
  * 
  *
  */
@@ -24,11 +24,18 @@ public abstract class Ajuda {
 	 * @param disciplina
 	 *            - Disciplina na qual o aluno deseja ajuda.
 	 * @param tutor
-	 *            - Tutor responsável por pela ajuda. Designado pelo sistema.
+	 *            - Tutor responsï¿½vel por pela ajuda. Designado pelo sistema.
 	 * @param id
 	 *            - Identificador unico da ajuda no sistema.
 	 */
 	public Ajuda(String matrAluno, String disciplina, Tutor tutor, int id) {
+		if (this.stringVaziaOuNula(matrAluno)) {
+			throw new IllegalArgumentException("Erro na criaÃ§Ã£o de ajuda: matricula do aluno nÃ£o pode ser vazia ou nula");
+		} else if (this.stringVaziaOuNula(disciplina)) {
+			throw new IllegalArgumentException("Erro na criaÃ§Ã£o de ajuda: disciplina nÃ£o pode ser vazia ou nula");
+		}
+		
+		
 		this.matrAluno = matrAluno;
 		this.disciplina = disciplina;
 		this.tutor = tutor;
@@ -59,7 +66,7 @@ public abstract class Ajuda {
 	/**
 	 * Metodo responsavel por retornar uma descricao do  tutor que esta ministrando a ajuda.
 	 * 
-	 * @return descricao do tutor, que está responsavel por ministrar a ajuda.
+	 * @return descricao do tutor, que estï¿½ responsavel por ministrar a ajuda.
 	 */
 	public abstract String pegarTutor();
 
@@ -102,6 +109,13 @@ public abstract class Ajuda {
 	 */
 	public boolean getAvaliada() {
 		return this.avaliada;
+	}
+	
+	private boolean stringVaziaOuNula(String texto) {
+		if (texto.trim().equals("") || texto == null) {
+			return true;
+		}
+		return false;
 	}
 
 }

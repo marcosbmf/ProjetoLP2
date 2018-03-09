@@ -1,7 +1,7 @@
 package Testes;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import ClassesBase.Ajuda;
@@ -14,12 +14,17 @@ public class AjudaOnlineTest {
 	Tutor tutor = new Tutor(new Aluno("Marcos", "111", 12, "83929292929", "joaizinhosexy@sexymail.com", 10), "LP2", 9001, 10);
 	Ajuda ajuda;
 	
-	@Test
+	@Before
 	public void testAjudaOnline() {
 		ajuda = new AjudaOnline("6669", "LP2", tutor, 1);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
+	public void testContrutorAjudaOnline() {
+		ajuda = new AjudaOnline("6669", "LP2", tutor, 1);
+	}
+	
+	@Test(expected = NullPointerException.class)
 	public void testAjudaOnlineInvalidoMatriculaNull() {
 		ajuda = new AjudaOnline(null, "LP2", tutor, 1);
 	}
@@ -29,7 +34,7 @@ public class AjudaOnlineTest {
 		ajuda = new AjudaOnline("  ", "LP2", tutor, 1);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NullPointerException.class)
 	public void testAjudaOnlineInvalidoDisciplinaNull() {
 		ajuda = new AjudaOnline("112312", null, tutor, 1);
 	}
@@ -41,18 +46,45 @@ public class AjudaOnlineTest {
 	
 	@Test
 	public void testPegarTutor() {
-		fail("Not yet implemented");
+		ajuda = new AjudaOnline("6669", "LP2", tutor, 1);
+		Assert.assertEquals("Tutor - 111, disciplina - LP2", ajuda.pegarTutor());
 	}
 
 	@Test
-	public void testGetInfoAjuda() {
-		fail("Not yet implemented");
+	public void testGetInfoAjudaMatricula() {
+		Assert.assertEquals("6669", this.ajuda.getInfoAjuda("matricula"));
+	}
+	
+	@Test
+	public void testGetInfoAjudaDisciplina() {
+		Assert.assertEquals("LP2", this.ajuda.getInfoAjuda("disciplina"));
 	}
 
 
 	@Test
-	public void testCalculaPontuacaoFinal() {
-		fail("Not yet implemented");
+	public void testCalculaPontuacaoFinalNotaLimiteInferior() {
+		ajuda.calculaPontuacaoFinal(0);
 	}
-
+	
+	@Test
+	public void testCalculaPontuacaoFinalNotaLimiteSuperior() {
+		ajuda.calculaPontuacaoFinal(5);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testCalculaPontuacaoFinalInvalidaNotaLimiteInferior() {
+		ajuda.calculaPontuacaoFinal(-1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testCalculaPontuacaoFinalInvalidaNotaLimiteSuperior() {
+		ajuda.calculaPontuacaoFinal(6);
+	}
+	
+	@Test
+	public void testaCalculaPontuacaoFinalValor() {
+		ajuda.calculaPontuacaoFinal(2);
+		Assert.assertTrue(tutor.getNotaAvaliacao() == 22.0/6);
+	}
+	
 }
