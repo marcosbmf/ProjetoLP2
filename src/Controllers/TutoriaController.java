@@ -1,5 +1,7 @@
 package Controllers;
 
+import java.io.Serializable;
+
 import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
@@ -11,7 +13,11 @@ import ClassesBase.Tutor;
  * @author Marcos Barros
  *
  */
-public class TutoriaController {
+public class TutoriaController implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	TutorController tc;
 	AjudaController ac;
 

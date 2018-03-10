@@ -1,5 +1,7 @@
 package ClassesBase;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Marcos Barros Classe responsavel por representar uma ajuda de modo
@@ -7,8 +9,12 @@ package ClassesBase;
  *
  */
 
-public class AjudaPresencial extends Ajuda {
+public class AjudaPresencial extends Ajuda implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String horario;
 	String dia;
 	String localInteresse;
@@ -40,7 +46,7 @@ public class AjudaPresencial extends Ajuda {
 	}
 
 	/**
-	 * Metodo responsável por devolver no formato String a informação sobre a ajuda
+	 * Metodo responsï¿½vel por devolver no formato String a informaï¿½ï¿½o sobre a ajuda
 	 * desejada pelo sistema.
 	 */
 	@Override

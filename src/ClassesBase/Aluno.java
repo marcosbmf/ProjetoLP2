@@ -1,5 +1,7 @@
 package ClassesBase;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa um aluno.
  * 
@@ -9,8 +11,12 @@ package ClassesBase;
  * @author marcosbmf
  *
  */
-public class Aluno implements Comparable<Aluno> {
+public class Aluno implements Comparable<Aluno>, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String matricula;
 	private int codigoCurso;

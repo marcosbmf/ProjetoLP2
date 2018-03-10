@@ -1,5 +1,6 @@
 package ClassesBase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,8 +12,12 @@ import java.util.ArrayList;
  *         proficiencia na mesma.
  *
  */
-public class Tutor implements Comparable<Tutor> {
+public class Tutor implements Comparable<Tutor>, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Disciplina> disciplinas;
 	private Aluno aluno;
 	private double notaAvaliacao;

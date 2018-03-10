@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -18,7 +19,12 @@ import ClassesBase.Tutor;
  *         TutorController
  *
  */
-public class TutorController {
+public class TutorController implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Caixa cx = new Caixa();
 

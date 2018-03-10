@@ -1,7 +1,13 @@
 package ClassesBase;
 
-public class Caixa {
+import java.io.Serializable;
 
+public class Caixa implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double dinheiro_sistema;
 
 	public Caixa() {

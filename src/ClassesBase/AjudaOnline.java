@@ -1,12 +1,19 @@
 package ClassesBase;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Marcos Barros Classe responsavel representar uma ajuda que ocorre no
  *         ambito online por meio de um tutor e um aluno
  *
  */
-public class AjudaOnline extends Ajuda {
+public class AjudaOnline extends Ajuda implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Construtor de uma ajuda online
@@ -42,7 +49,7 @@ public class AjudaOnline extends Ajuda {
 	}
 
 	/**
-	 * Metodo responsável por retornar uma descricao no formato "Tutor - matricula ,
+	 * Metodo responsï¿½vel por retornar uma descricao no formato "Tutor - matricula ,
 	 * disciplina - nomedisciplina "
 	 */
 	@Override

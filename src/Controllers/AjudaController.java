@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,12 @@ import ClassesBase.Tutor;
  *         sistema de ajudas entre tutores e alunos .
  *
  */
-public class AjudaController {
+public class AjudaController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Ajuda> ajudas;
 
 	/**
@@ -91,7 +96,7 @@ public class AjudaController {
 	/**
 	 * 
 	 * @param idAjuda
-	 * @return Descricao em string do tutor responsável pela ajuda , bem como com
+	 * @return Descricao em string do tutor responsï¿½vel pela ajuda , bem como com
 	 *         informacoes relacionadas a ajuda.
 	 * 
 	 */
@@ -123,9 +128,9 @@ public class AjudaController {
 	}
 	
 	/**
-	 * Metodo responsavel por verificar se uma String é vazia ou null 
+	 * Metodo responsavel por verificar se uma String ï¿½ vazia ou null 
 	 * @param texto
-	 * @return Boolean afirmando se a string é vazia ou null
+	 * @return Boolean afirmando se a string ï¿½ vazia ou null
 	 */
 	private boolean stringVaziaOuNula(String texto) {
 		if (texto.trim().equals("") || texto == null) {
@@ -135,7 +140,7 @@ public class AjudaController {
 	}
 	
 	/**
-	 * Metodo responsável por avaliar um tutor de uma ajuda , por meio de uma nota especificada . 
+	 * Metodo responsï¿½vel por avaliar um tutor de uma ajuda , por meio de uma nota especificada . 
 	 * @param idAjuda Identificador unico da ajuda. 
 	 * @param nota de avaliacao do tutor responsavel pela ajuda entre  0 - 5 
 	 */

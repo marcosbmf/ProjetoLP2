@@ -1,5 +1,7 @@
 package ClassesBase;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Marcos Barros
@@ -7,13 +9,17 @@ package ClassesBase;
  *         Classe que representa uma disciplina, tendo um nome e a proficiencia.
  *
  */
-public class Disciplina {
+public class Disciplina implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private int proficiencia;
 
 	/**
 	 * 
-	 * Constroí uma disciplina a partir do nome a da proficiencia nela.
+	 * Constroï¿½ uma disciplina a partir do nome a da proficiencia nela.
 	 * 
 	 * @param nome
 	 * @param proficiencia.
@@ -46,10 +52,10 @@ public class Disciplina {
 	}
 
 	/**
-	 * Este método retorna a String que representa uma disciplina No formato: nome -
+	 * Este mï¿½todo retorna a String que representa uma disciplina No formato: nome -
 	 * proficiencia
 	 * 
-	 * @return representação em String de uma disciplina
+	 * @return representaï¿½ï¿½o em String de uma disciplina
 	 */
 	@Override
 	public String toString() {
@@ -57,7 +63,7 @@ public class Disciplina {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, é
+	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½
 	 * vazia ou nula.
 	 * 
 	 * @param texto

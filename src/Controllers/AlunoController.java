@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,7 +15,11 @@ import ClassesBase.Aluno;
  *         as funcoes relativas a aluno - AlunoController
  *
  */
-public class AlunoController {
+public class AlunoController implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Map<String, Aluno> alunos;
 
 	/**

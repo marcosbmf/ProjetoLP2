@@ -1,5 +1,6 @@
 package ClassesBase;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,8 +14,12 @@ import java.util.Map;
  *         Classe responsavel pela representacao de uma agenda com
  *         disponibilidade de horarios , locais e dias para tutoria .
  */
-public class Agenda {
+public class Agenda implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<String> locais;
 	private Map<String, ArrayList<LocalTime>> horarios;
 
@@ -130,7 +135,7 @@ public class Agenda {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se uma string recebida como parametro, é
+	 * Metodo responsavel por verificar se uma string recebida como parametro, ï¿½
 	 * vazia ou nula.
 	 * 
 	 * @param texto

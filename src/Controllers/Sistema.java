@@ -1,18 +1,15 @@
 package Controllers;
 
-import java.io.IOException;
+import java.io.Serializable;
 
-/**
- * 
- * @author Victor Ribeiro Miranda - 116211361 Classe responsavel por gerenciar e
- *         delegar funcoes para outras classes - Sistema
- *
- */
-
-public class Facade {
-
-	Sistema sistema = new Sistema();
-	ArquivosController ac = new ArquivosController();
+public class Sistema implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	AlunoController ac = new AlunoController();
+	TutoriaController tc = new TutoriaController();
 
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
@@ -24,7 +21,7 @@ public class Facade {
 	 * @param email
 	 */
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		sistema.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
+		ac.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
 	}
 
 	/**
@@ -36,7 +33,7 @@ public class Facade {
 	 *         matricula .
 	 */
 	public String recuperaAluno(String matricula) {
-		return sistema.recuperaAluno(matricula);
+		return ac.recuperaAluno(matricula);
 	}
 
 	/**
@@ -45,7 +42,7 @@ public class Facade {
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarAlunos() {
-		return sistema.listarAlunos();
+		return ac.listarAlunos();
 	}
 
 	/**
@@ -57,7 +54,7 @@ public class Facade {
 	 *         matricula.
 	 */
 	public String getInfoAluno(String matricula, String atributo) {
-		return sistema.getInfoAluno(matricula, atributo);
+		return ac.getinfoAluno(matricula, atributo);
 	}
 
 	/**
@@ -68,7 +65,7 @@ public class Facade {
 	 * @param proficiencia
 	 */
 	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
-		sistema.tornarTutor(matricula, disciplina, proficiencia);
+		tc.tornarTutor(ac.getAluno(matricula), disciplina, proficiencia);
 
 	}
 
@@ -82,7 +79,7 @@ public class Facade {
 	 *         matricula.
 	 */
 	public String recuperaTutor(String matricula) {
-		return sistema.recuperaTutor(matricula);
+		return tc.recuperaTutor(matricula);
 	}
 
 	/**
@@ -91,7 +88,7 @@ public class Facade {
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarTutores() {
-		return sistema.listarTutores();
+		return tc.listarTutores();
 	}
 
 	/**
@@ -103,7 +100,7 @@ public class Facade {
 	 */
 
 	public void cadastrarHorario(String email, String horario, String dia) {
-		sistema.cadastrarHorario(email, horario, dia);
+		tc.cadastrarHorario(email, horario, dia);
 	}
 
 	/**
@@ -112,7 +109,7 @@ public class Facade {
 	 * @param local
 	 */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		sistema.cadastrarLocalDeAtendimento(email, local);
+		tc.cadastrarLocalDeAtendimento(email, local);
 	}
 
 	/**
@@ -125,7 +122,7 @@ public class Facade {
 	 * @return Boolean afirmando disponibilidade de tutoria no dia / hora
 	 */
 	public boolean consultaHorario(String email, String horario, String dia) {
-		return sistema.consultaHorario(email, horario, dia);
+		return tc.consultaHorario(email, horario, dia);
 	}
 
 	/**
@@ -137,7 +134,7 @@ public class Facade {
 	 * @return Boolean afirmando disponibilidade de tutoria no local
 	 */
 	public boolean consultaLocal(String email, String local) {
-		return sistema.consultaLocal(email, local);
+		return tc.consultaLocal(email, local);
 	}
 
 	/**
@@ -157,7 +154,7 @@ public class Facade {
 	 */
 	public int pedirAjudaPresencial(String matrAluno, String disciplina, String horario, String dia,
 			String localInteresse) {
-		return sistema.pedirAjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse);
+		return tc.pedirAjudaPresencial(matrAluno, disciplina, horario, dia, localInteresse);
 	}
 
 	/**
@@ -170,7 +167,7 @@ public class Facade {
 	 * @return numero de ajudas ja cadastradas no sistema.
 	 */
 	public int pedirAjudaOnline(String matrAluno, String disciplina) {
-		return sistema.pedirAjudaOnline(matrAluno, disciplina);
+		return tc.pedirAjudaOnline(matrAluno, disciplina);
 	}
 
 	/**
@@ -182,7 +179,7 @@ public class Facade {
 	 * @return Representacao textual do tutor e da ajuda.
 	 */
 	public String pegarTutor(int idAjuda) {
-		return sistema.pegarTutor(idAjuda);
+		return tc.pegarTutor(idAjuda);
 	}
 
 	/**
@@ -194,7 +191,7 @@ public class Facade {
 	 * @return Informacao desejada sobre a ajuda.
 	 */
 	public String getInfoAjuda(int idAjuda, String atributo) {
-		return sistema.getInfoAjuda(idAjuda, atributo);
+		return tc.getInfoAjuda(idAjuda, atributo);
 	}
 
 	/**
@@ -207,7 +204,7 @@ public class Facade {
 	 *            - Nota dada ao tutor 0-5 .
 	 */
 	public void avaliarTutor(int idAjuda, int nota) {
-		sistema.avaliarTutor(idAjuda, nota);
+		tc.avaliarTutor(idAjuda, nota);
 	}
 
 	/**
@@ -219,7 +216,7 @@ public class Facade {
 	 * @return Nota de avalicao geral do tutor .
 	 */
 	public String pegarNota(String matriculaTutor) {
-		return sistema.pegarNota(matriculaTutor);
+		return tc.pegarNota(matriculaTutor);
 	}
 
 	/**
@@ -232,7 +229,7 @@ public class Facade {
 	 * @return Nivel de habilidade do tutor .
 	 */
 	public String pegarNivel(String matriculaTutor) {
-		return sistema.pegarNivel(matriculaTutor);
+		return tc.pegarNivel(matriculaTutor);
 	}
 
 	/**
@@ -247,7 +244,7 @@ public class Facade {
 	 */
 
 	public void doar(String matriculaTutor, int totalCentavos) {
-		sistema.doar(matriculaTutor, totalCentavos);
+		tc.doar(matriculaTutor, totalCentavos);
 
 	}
 
@@ -262,7 +259,7 @@ public class Facade {
 	 */
 
 	public int totalDinheiroTutor(String emailTutor) {
-		return sistema.totalDinheiroTutor(emailTutor);
+		return tc.totalDinheiroTutor(emailTutor);
 	}
 
 	/**
@@ -274,15 +271,7 @@ public class Facade {
 	 */
 
 	public int totalDinheiroSistema() {
-		return sistema.totalDinheiroSistema();
+		return tc.totalDinheiroSistema();
 	}
-	
-	public void salvarSistema() throws IOException {
-		ac.salvaObjeto("Sistema.txt", this.sistema);
-	}
-	
-	public void carregarSistema() throws IOException {
-		Sistema sistemaCarregado = (Sistema) ac.carregaObjeto("Sistema.txt");
-		this.sistema = sistemaCarregado;
-	}
+
 }

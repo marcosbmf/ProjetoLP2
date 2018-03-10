@@ -1,5 +1,7 @@
 package ClassesBase;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Marcos Barros Classe responsavel pela representa��o de uma ajuda
@@ -8,8 +10,12 @@ package ClassesBase;
  *
  */
 
-public abstract class Ajuda {
+public abstract class Ajuda implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String matrAluno;
 	protected String disciplina;
 	protected Tutor tutor;
