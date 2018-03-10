@@ -3,6 +3,7 @@ package Controllers;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,9 @@ import java.util.Map;
 import ClassesBase.Aluno;
 import ClassesBase.Caixa;
 import ClassesBase.Tutor;
+import ClassesBase.TutorComparatorEmail;
+import ClassesBase.TutorComparatorMatricula;
+import ClassesBase.TutorComparatorNome;
 
 /**
  * 
@@ -29,6 +33,8 @@ public class TutorController implements Serializable{
 	private Caixa cx = new Caixa();
 
 	private Map<String, Tutor> tutores;
+	
+	private Comparator ordem;
 
 	/**
 	 * Contrutor de TutorController
@@ -93,7 +99,14 @@ public class TutorController implements Serializable{
 
 		List<Tutor> tutores = new ArrayList<Tutor>();
 		tutores.addAll(this.tutores.values());
-		Collections.sort(tutores);
+		
+		if(this.ordem  == null) {
+			Collections.sort(tutores);
+		}
+		else {
+			Collections.sort(tutores,ordem);
+		}
+		
 		String aux = "";
 		for (Tutor tutor : tutores) {
 			aux += tutor.toString() + ", ";
@@ -371,4 +384,28 @@ public class TutorController implements Serializable{
 	public int totalDinheiroSistema() {
 		return (int) cx.getDinheiro_sistema();
 	}
+
+	public void configurarOrdem(String atributo) {
+		if(atributo.equals("NOME")) {
+			this.ordem = new TutorComparatorNome();
+		}
+		else {
+			if(atributo.equals("MATRICULA")) {
+				this.ordem = new TutorComparatorMatricula();
+			}
+			else {
+				if(atributo.equals("EMAIL")) {
+					this.ordem = new TutorComparatorEmail();
+				}
+				else {
+					throw new IllegalArgumentException();
+				}
+			}
+		}
+		
+	}
+	
+	
+	
+	
 }

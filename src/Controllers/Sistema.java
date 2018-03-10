@@ -10,7 +10,7 @@ public class Sistema implements Serializable {
 	private static final long serialVersionUID = 1L;
 	AlunoController ac = new AlunoController();
 	TutoriaController tc = new TutoriaController();
-
+	
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
 	 * 
@@ -272,6 +272,11 @@ public class Sistema implements Serializable {
 
 	public int totalDinheiroSistema() {
 		return tc.totalDinheiroSistema();
+	}
+
+	public void configurarOrdem(String atributo) {
+		tc.configurarOrdem(atributo);
+		
 	}
 
 }

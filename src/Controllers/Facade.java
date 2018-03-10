@@ -285,4 +285,10 @@ public class Facade {
 		Sistema sistemaCarregado = (Sistema) ac.carregaObjeto("Sistema.txt");
 		this.sistema = sistemaCarregado;
 	}
+	
+	
+	public void configurarOrdem(String atributo) {
+		sistema.configurarOrdem(atributo);
+	}
+	
 }

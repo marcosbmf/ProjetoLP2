@@ -21,6 +21,7 @@ public class TutoriaController implements Serializable{
 	TutorController tc;
 	AjudaController ac;
 
+	
 	public TutoriaController() {
 		tc = new TutorController();
 		ac = new AjudaController();
@@ -212,5 +213,10 @@ public class TutoriaController implements Serializable{
 	
 	public int totalDinheiroSistema() {
 		return tc.totalDinheiroSistema();
+	}
+
+	public void configurarOrdem(String atributo) {
+		tc.configurarOrdem(atributo);
+		
 	}
 }
