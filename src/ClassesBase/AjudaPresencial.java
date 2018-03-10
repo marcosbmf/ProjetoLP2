@@ -40,6 +40,14 @@ public class AjudaPresencial extends Ajuda implements Serializable {
 	public AjudaPresencial(String matrAluno, String disciplina, String horario, String dia, String localInteresse,
 			Tutor tutor, int id) {
 		super(matrAluno, disciplina, tutor, id);
+		if (this.stringVaziaOuNula(horario)) {
+			throw new IllegalArgumentException("Erro na criacao de ajuda: horario nao pode ser vazia ou nula");
+		} else if (this.stringVaziaOuNula(dia)) {
+			throw new IllegalArgumentException("Erro na criacao de ajuda: dia nao pode ser vazio ou nulo");
+		} else if (this.stringVaziaOuNula(localInteresse)) {
+			throw new IllegalArgumentException("Erro na criacao de ajuda: local nao pode ser vazio ou nulo");
+		}
+		
 		this.horario = horario;
 		this.dia = dia;
 		this.localInteresse = localInteresse;
@@ -77,4 +85,12 @@ public class AjudaPresencial extends Ajuda implements Serializable {
 		return "Tutor - " + this.tutor.getMatricula() + ", horario - " + this.horario + ", dia - " + this.dia
 				+ ", local - " + this.localInteresse + ", disciplina - " + this.disciplina;
 	}
+	
+	private boolean stringVaziaOuNula(String texto) {
+		if (texto.trim().equals("") || texto == null) {
+			return true;
+		}
+		return false;
+	}
+	
 }
