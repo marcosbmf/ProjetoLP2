@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * 
+ * @author Marcos Barros
+ *
+ */
 public class ArquivosController {
 
 	public void salvaObjeto(String nomeArquivo, Object objeto) throws IOException {

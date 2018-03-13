@@ -6,6 +6,11 @@ import org.junit.Assert;
 
 import ClassesBase.Aluno;
 
+/**
+ * 
+ * @author Marcos Barros
+ *
+ */
 public class AlunoTest {
 
 	Aluno aluno;

@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * 
- * @author Marcos Barros Classe responsavel por representar uma ajuda de modo
- *         presencial entre um tutor e um aluno em uma disciplina.
+ * @author Marcos Barros 
+ * Classe responsavel por representar uma ajuda de modo presencial entre um tutor e um aluno em uma disciplina.
  *
  */
 

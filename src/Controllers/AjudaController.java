@@ -11,8 +11,8 @@ import ClassesBase.Tutor;
 
 /**
  * 
- * @author Marcos Barros Classe responsavel por implementar um controllador do
- *         sistema de ajudas entre tutores e alunos .
+ * @author Marcos Barros 
+ * Classe responsavel por implementar um controllador do sistema de ajudas entre tutores e alunos .
  *
  */
 public class AjudaController implements Serializable{

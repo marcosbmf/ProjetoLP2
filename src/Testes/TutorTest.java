@@ -8,6 +8,11 @@ import org.junit.Assert;
 import ClassesBase.Aluno;
 import ClassesBase.Tutor;
 
+/**
+ * 
+ * @author Marcos Barros
+ *
+ */
 public class TutorTest {
 
 	Tutor tutor;

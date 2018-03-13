@@ -11,7 +11,7 @@ import ClassesBase.Tutor;
 
 /**
  * Classe de teste de AjudaOnline
- * @author marcosbmf
+ * @author Marcos Barros
  *
  */
 public class AjudaOnlineTest {
