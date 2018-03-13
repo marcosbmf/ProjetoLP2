@@ -219,4 +219,8 @@ public class TutoriaController implements Serializable{
 		tc.configurarOrdem(atributo);
 		
 	}
+
+	public void limparOrdem() {
+		this.tc.limparOrdem();
+	}
 }

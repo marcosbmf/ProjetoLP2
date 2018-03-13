@@ -204,4 +204,8 @@ public class AlunoController implements Serializable{
 		
 	}
 
+	public void limparOrdem() {
+		this.ordem = null;
+	}
+
 }

@@ -277,13 +277,20 @@ public class Facade {
 		return sistema.totalDinheiroSistema();
 	}
 	
-	public void salvarSistema() throws IOException {
+	public void salvar() throws IOException {
 		ac.salvaObjeto("Sistema.txt", this.sistema);
 	}
 	
-	public void carregarSistema() throws IOException {
+	public void carregar() throws IOException {
 		Sistema sistemaCarregado = (Sistema) ac.carregaObjeto("Sistema.txt");
 		this.sistema = sistemaCarregado;
+		this.sistema.limparOrdem();
+	}
+	
+	public void limpar() {
+		String ordem = this.sistema.getOrdenacaoAtual();
+		this.sistema = new Sistema();
+		this.sistema.configurarOrdem(ordem);
 	}
 	
 	

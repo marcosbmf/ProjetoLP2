@@ -10,6 +10,7 @@ public class Sistema implements Serializable {
 	private static final long serialVersionUID = 1L;
 	AlunoController ac = new AlunoController();
 	TutoriaController tc = new TutoriaController();
+	private String ordem;
 	
 	/**
 	 * Metodo responsavel por cadastrar um aluno no sistema.
@@ -277,6 +278,16 @@ public class Sistema implements Serializable {
 	public void configurarOrdem(String atributo) {
 		tc.configurarOrdem(atributo);
 		ac.configurarOrdem(atributo);
+		this.ordem = atributo;
+	}
+	
+	public void limparOrdem() {
+		tc.limparOrdem();
+		ac.limparOrdem();
+	}
+
+	public String getOrdenacaoAtual() {
+		return this.ordem;
 	}
 
 }

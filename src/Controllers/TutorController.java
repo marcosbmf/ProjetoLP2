@@ -395,6 +395,10 @@ public class TutorController implements Serializable{
 		}
 		
 	}
+
+	public void limparOrdem() {
+		this.ordem = null;
+	}
 	
 	
 	
