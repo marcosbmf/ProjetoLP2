@@ -308,6 +308,7 @@ public class TutorController implements Serializable{
 	/**
 	 * 
 	 * Metodo responsavel por possibilitar a doacao para um tutor.
+	 * 
 	 * @param matriculaTutor - Matricula do tutor.
 	 * @param totalCentavos - Dinheiro doado em centavos.
 	 *  
@@ -375,7 +376,15 @@ public class TutorController implements Serializable{
 	public int totalDinheiroSistema() {
 		return (int) cx.getDinheiro_sistema();
 	}
-
+	
+	/**
+	 * 
+	 * Metodo responsavel por configurar a ordenacao dos tutores de acordo com o atributo especificado
+	 * 
+	 * 
+	 * @param atributo - Atributo a qual os tutores serao ordenados
+	 * 
+	 */
 	public void configurarOrdem(String atributo) {
 		if(atributo.equals("NOME")) {
 			this.ordem = new TutorComparatorNome();
@@ -395,7 +404,12 @@ public class TutorController implements Serializable{
 		}
 		
 	}
-
+	
+	/**
+	 * 
+	 * Metodo responsavel por limpar a configuracao da ordenacao.
+	 * 
+	 */
 	public void limparOrdem() {
 		this.ordem = null;
 	}

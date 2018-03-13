@@ -13,7 +13,14 @@ import java.io.ObjectOutputStream;
  *
  */
 public class ArquivosController {
-
+	/**
+	 * Metodo responsavel salvar um objeto em arquivo.
+	 * 
+	 *  @param nomeArquivo 
+	 *  	- O nome do arquivo que será criado para salvar o objeto
+	 *  @param objeto
+	 *  	- O objeto a ser salvo no arquivo
+	 */
 	public void salvaObjeto(String nomeArquivo, Object objeto) throws IOException {
 		File file = new File(nomeArquivo);
 		FileOutputStream fos;
@@ -23,11 +30,17 @@ public class ArquivosController {
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(objeto);
 			oos.close();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			throw new IOException();
 		}
 	}
-	
+	/**
+	 * Metodo responsavel por recuperar um objeto salvo.
+	 * 
+	 *  @param nomeArquivo 
+	 *  	- O nome do arquivo que será carregado
+	 *
+	 */
 	public Object carregaObjeto(String nomeArquivo) throws IOException {
 		File file = new File(nomeArquivo);
 		FileInputStream fis;

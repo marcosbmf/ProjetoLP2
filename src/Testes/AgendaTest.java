@@ -5,7 +5,11 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import ClassesBase.Agenda;
-
+/**
+ * 
+ * Classe responsavel por testar as funcionalidades da classe Agenda.
+ *
+ */
 public class AgendaTest {
 
 	Agenda agenda;

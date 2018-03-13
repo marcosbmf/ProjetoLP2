@@ -4,16 +4,19 @@ import java.util.Comparator;
 
 import ClassesBase.Aluno;
 
+/**
+ * Classe responsavel por controlar o comparador de Aluno a partir do nome.
+ *
+ */
 public class AlunoComparatorNome implements Comparator<Aluno> {
 
 	AlunoComparatorMatricula comparador = new AlunoComparatorMatricula();
-	
+
 	@Override
 	public int compare(Aluno o1, Aluno o2) {
-		if(o1.getNome().compareTo(o2.getNome()) == 0) {
+		if (o1.getNome().compareTo(o2.getNome()) == 0) {
 			return comparador.compare(o1, o2);
-		}
-		else {
+		} else {
 			return o1.getNome().compareTo(o2.getNome());
 		}
 	}

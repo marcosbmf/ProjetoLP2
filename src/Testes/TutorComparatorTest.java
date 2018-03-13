@@ -5,7 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Controllers.Sistema;
-
+/**
+ * 
+ * Classe responsavel por testar as funcionalidades da classe Tutor Comparator
+ *
+ */
 public class TutorComparatorTest {
 
 	Sistema sistema;
@@ -20,21 +24,27 @@ public class TutorComparatorTest {
 		sistema.tornarTutor("12", "LP2", 10);
 		sistema.tornarTutor("5", "LP2", 10);
 	}
-	
+	/**
+	 * Testa se ordena por email.
+	 */
 	@Test
 	public void testaEmailComparator() {
 		sistema.configurarOrdem("EMAIL");
 		String esperado = sistema.recuperaAluno("15") + ", "+ sistema.recuperaAluno("5") + ", " + sistema.recuperaAluno("12");
 		Assert.assertEquals(esperado, sistema.listarTutores());
 	}
-	
+	/**
+	 * Testa se ordena nome.
+	 */
 	@Test
 	public void testaNomeComparator() {
 		sistema.configurarOrdem("NOME");
 		String esperado = sistema.recuperaAluno("15") + ", "+ sistema.recuperaAluno("12") + ", " + sistema.recuperaAluno("5");
 		Assert.assertEquals(esperado, sistema.listarTutores());
 	}
-	
+	/**
+	 * Testa se ordena matricula.
+	 */
 	@Test
 	public void testaMatriculaComparator() {
 		sistema.configurarOrdem("MATRICULA");

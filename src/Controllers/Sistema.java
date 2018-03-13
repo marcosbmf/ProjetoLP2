@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Sistema implements Serializable {
 	
 	/**
+	 * Classe responsável por sistematizar e unificar os modulos do programa.
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -274,18 +275,35 @@ public class Sistema implements Serializable {
 	public int totalDinheiroSistema() {
 		return tc.totalDinheiroSistema();
 	}
-
+	/**
+	 * 
+	 * Metodo responsavel por configurar a ordenacao dos tutores de acordo com o atributo especificado
+	 * 
+	 * 
+	 * @param atributo - Atributo a qual os tutores serao ordenados
+	 * 
+	 */
 	public void configurarOrdem(String atributo) {
 		tc.configurarOrdem(atributo);
 		ac.configurarOrdem(atributo);
 		this.ordem = atributo;
 	}
-	
+	/**
+	 * 
+	 * Metodo responsavel por limpar a configuracao da ordenacao.
+	 * 
+	 */
 	public void limparOrdem() {
 		tc.limparOrdem();
 		ac.limparOrdem();
 	}
-
+	/**
+	 * 
+	 * Metodo responsavel retornar qual o atributo esta configurado para a ordenacao atual.
+	 * 
+	 * @return ordem
+	 * 
+	 */
 	public String getOrdenacaoAtual() {
 		return this.ordem;
 	}

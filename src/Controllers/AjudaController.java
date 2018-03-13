@@ -11,11 +11,11 @@ import ClassesBase.Tutor;
 
 /**
  * 
- * @author Marcos Barros 
- * Classe responsavel por implementar um controllador do sistema de ajudas entre tutores e alunos .
+ * @author Marcos Barros Classe responsavel por implementar um controllador do
+ *         sistema de ajudas entre tutores e alunos .
  *
  */
-public class AjudaController implements Serializable{
+public class AjudaController implements Serializable {
 
 	/**
 	 * 
@@ -31,7 +31,8 @@ public class AjudaController implements Serializable{
 	}
 
 	/**
-	 * Metodo responsavel por requisitar um pedido de ajuda presencial no sistema.
+	 * Metodo responsavel por requisitar um pedido de ajuda presencial no
+	 * sistema.
 	 * 
 	 * @param matrAluno
 	 *            - Matricula do aluno que deseja receber ajuda
@@ -96,8 +97,8 @@ public class AjudaController implements Serializable{
 	/**
 	 * 
 	 * @param idAjuda
-	 * @return Descricao em string do tutor respons�vel pela ajuda , bem como com
-	 *         informacoes relacionadas a ajuda.
+	 * @return Descricao em string do tutor respons�vel pela ajuda , bem como
+	 *         com informacoes relacionadas a ajuda.
 	 * 
 	 */
 	public String pegarTutor(int idAjuda) {
@@ -108,12 +109,15 @@ public class AjudaController implements Serializable{
 		}
 		return this.ajudas.get(idAjuda - 1).pegarTutor();
 	}
-	
+
 	/**
 	 * 
-	 * @param idAjuda - identificador unico da ajuda 
-	 * @param atributo -  O atributo no qual deseja-se recuperar a ajuda.
-	 * @return Informacao da ajuda especificada pelo atributo , por meio de uma String .,
+	 * @param idAjuda
+	 *            - identificador unico da ajuda
+	 * @param atributo
+	 *            - O atributo no qual deseja-se recuperar a ajuda.
+	 * @return Informacao da ajuda especificada pelo atributo , por meio de uma
+	 *         String .,
 	 */
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		if (idAjuda <= 0) {
@@ -126,9 +130,10 @@ public class AjudaController implements Serializable{
 		}
 		return this.ajudas.get(idAjuda - 1).getInfoAjuda(atributo);
 	}
-	
+
 	/**
-	 * Metodo responsavel por verificar se uma String � vazia ou null 
+	 * Metodo responsavel por verificar se uma String � vazia ou null
+	 * 
 	 * @param texto
 	 * @return Boolean afirmando se a string � vazia ou null
 	 */
@@ -138,20 +143,22 @@ public class AjudaController implements Serializable{
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Metodo respons�vel por avaliar um tutor de uma ajuda , por meio de uma nota especificada . 
-	 * @param idAjuda Identificador unico da ajuda. 
-	 * @param nota de avaliacao do tutor responsavel pela ajuda entre  0 - 5 
+	 * Metodo respons�vel por avaliar um tutor de uma ajuda , por meio de uma
+	 * nota especificada .
+	 * 
+	 * @param idAjuda
+	 *            Identificador unico da ajuda.
+	 * @param nota
+	 *            de avaliacao do tutor responsavel pela ajuda entre 0 - 5
 	 */
 	public void avaliarTutor(int idAjuda, int nota) {
 		if (nota < 0) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser menor que 0");
-		}
-		else if (nota > 5) {
+		} else if (nota > 5) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
-		}
-		else  	if (this.ajudas.size() < idAjuda) {
+		} else if (this.ajudas.size() < idAjuda) {
 			throw new IllegalArgumentException("Erro na avaliacao de tutor: id nao encontrado ");
 		}
 

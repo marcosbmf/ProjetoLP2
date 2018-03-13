@@ -276,26 +276,42 @@ public class Facade {
 	public int totalDinheiroSistema() {
 		return sistema.totalDinheiroSistema();
 	}
-	
+	/**
+	 * 
+	 * Metodo responsavel salvar o sistema em arquivo. 
+	 * 
+	 */
 	public void salvar() throws IOException {
 		ac.salvaObjeto("Sistema.txt", this.sistema);
 	}
-	
+	/**
+	 * Metodo responsavel por recuperar e carregar o sistema
+	 *
+	 */
 	public void carregar() throws IOException {
 		Sistema sistemaCarregado = (Sistema) ac.carregaObjeto("Sistema.txt");
 		this.sistema = sistemaCarregado;
 		this.sistema.limparOrdem();
 	}
-	
+	/**
+	 * Metodo responsavel por limpar os dados slavos no sistema.
+	 * 
+	 */
 	public void limpar() {
 		String ordem = this.sistema.getOrdenacaoAtual();
 		this.sistema = new Sistema();
 		this.sistema.configurarOrdem(ordem);
 	}
-	
-	
+	/**
+	 * 
+	 * Metodo responsavel por configurar a ordenacao dos tutores de acordo com o atributo especificado
+	 * 
+	 * 
+	 * @param atributo - Atributo a qual os tutores serao ordenados
+	 * 
+	 */
 	public void configurarOrdem(String atributo) {
 		sistema.configurarOrdem(atributo);
 	}
-	
+
 }

@@ -19,7 +19,7 @@ import Comparators.AlunoComparatorNome;
  *         as funcoes relativas a aluno - AlunoController
  *
  */
-public class AlunoController implements Serializable{
+public class AlunoController implements Serializable {
 	/**
 	 * 
 	 */
@@ -58,8 +58,8 @@ public class AlunoController implements Serializable{
 	}
 
 	/**
-	 * Metodo responsavel por verificar se o email fornecido eh valido no formato
-	 * XXXXX.XXXXX@#########
+	 * Metodo responsavel por verificar se o email fornecido eh valido no
+	 * formato XXXXX.XXXXX@#########
 	 * 
 	 * @param email
 	 * @return Boolean afirmando a se o email fornecido eh valido
@@ -94,7 +94,8 @@ public class AlunoController implements Serializable{
 	}
 
 	/**
-	 * Metodo responsavel por recuperar um aluno por meio da matricula na colecaoo.
+	 * Metodo responsavel por recuperar um aluno por meio da matricula na
+	 * colecaoo.
 	 * 
 	 * @param matricula
 	 * @return Representacao em String de um determinado aluno por meio de sua
@@ -119,7 +120,7 @@ public class AlunoController implements Serializable{
 		}
 		return aux.substring(0, aux.length() - 2);
 	}
-	
+
 	private List<Aluno> listaAlunos() {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		alunos.addAll(this.alunos.values());
@@ -183,25 +184,22 @@ public class AlunoController implements Serializable{
 		this.alunos.remove(matricula);
 		this.alunos.put(matricula, aluno);
 	}
-	
+
 	public void configurarOrdem(String atributo) {
-		if(atributo.equals("NOME")) {
+		if (atributo.equals("NOME")) {
 			this.ordem = new AlunoComparatorNome();
-		}
-		else {
-			if(atributo.equals("MATRICULA")) {
+		} else {
+			if (atributo.equals("MATRICULA")) {
 				this.ordem = new AlunoComparatorMatricula();
-			}
-			else {
-				if(atributo.equals("EMAIL")) {
+			} else {
+				if (atributo.equals("EMAIL")) {
 					this.ordem = new AlunoComparatorEmail();
-				}
-				else {
+				} else {
 					throw new IllegalArgumentException();
 				}
 			}
 		}
-		
+
 	}
 
 	public void limparOrdem() {

@@ -4,6 +4,10 @@ import java.util.Comparator;
 
 import ClassesBase.Aluno;
 
+/**
+ * Classe responsavel por controlar o comparador de Aluno a partir do email.
+ *
+ */
 public class AlunoComparatorEmail implements Comparator<Aluno> {
 
 	AlunoComparatorMatricula comparador  = new AlunoComparatorMatricula();
