@@ -11,9 +11,9 @@ import java.util.Map;
 import ClassesBase.Aluno;
 import ClassesBase.Caixa;
 import ClassesBase.Tutor;
-import ClassesBase.TutorComparatorEmail;
-import ClassesBase.TutorComparatorMatricula;
-import ClassesBase.TutorComparatorNome;
+import Comparators.TutorComparatorEmail;
+import Comparators.TutorComparatorMatricula;
+import Comparators.TutorComparatorNome;
 
 /**
  * 
@@ -34,7 +34,7 @@ public class TutorController implements Serializable{
 
 	private Map<String, Tutor> tutores;
 	
-	private Comparator ordem;
+	private Comparator<Tutor> ordem;
 
 	/**
 	 * Contrutor de TutorController
@@ -96,19 +96,8 @@ public class TutorController implements Serializable{
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarTutores() {
-
-		List<Tutor> tutores = new ArrayList<Tutor>();
-		tutores.addAll(this.tutores.values());
-		
-		if(this.ordem  == null) {
-			Collections.sort(tutores);
-		}
-		else {
-			Collections.sort(tutores,ordem);
-		}
-		
 		String aux = "";
-		for (Tutor tutor : tutores) {
+		for (Tutor tutor : this.listaTutores()) {
 			aux += tutor.toString() + ", ";
 		}
 		return aux.substring(0, aux.length() - 2);
@@ -271,8 +260,10 @@ public class TutorController implements Serializable{
 	private List<Tutor> listaTutores() {
 		List<Tutor> tutores = new ArrayList<Tutor>();
 		tutores.addAll(this.tutores.values());
+		Collections.sort(tutores, ordem);
 		return tutores;
 	}
+
 
 	/**
 	 * M�todo que compara dois tutores pela sua profici�ncia em uma disciplina e usa

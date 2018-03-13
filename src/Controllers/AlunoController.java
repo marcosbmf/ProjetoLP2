@@ -3,11 +3,15 @@ package Controllers;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import ClassesBase.Aluno;
+import Comparators.AlunoComparatorEmail;
+import Comparators.AlunoComparatorMatricula;
+import Comparators.AlunoComparatorNome;
 
 /**
  * 
@@ -21,6 +25,7 @@ public class AlunoController implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Map<String, Aluno> alunos;
+	private Comparator<Aluno> ordem;
 
 	/**
 	 * Contrutor de AlunoController
@@ -108,14 +113,18 @@ public class AlunoController implements Serializable{
 	 * @return String contendo a representando de todos os alunos cadastrados .
 	 */
 	public String listarAlunos() {
-		List<Aluno> alunos = new ArrayList<Aluno>();
-		alunos.addAll(this.alunos.values());
-		Collections.sort(alunos);
 		String aux = "";
-		for (Aluno aluno : alunos) {
+		for (Aluno aluno : this.listaAlunos()) {
 			aux += aluno.toString() + ", ";
 		}
 		return aux.substring(0, aux.length() - 2);
+	}
+	
+	private List<Aluno> listaAlunos() {
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		alunos.addAll(this.alunos.values());
+		Collections.sort(alunos, ordem);
+		return alunos;
 	}
 
 	/**
@@ -173,6 +182,26 @@ public class AlunoController implements Serializable{
 	public void setAluno(String matricula, Aluno aluno) {
 		this.alunos.remove(matricula);
 		this.alunos.put(matricula, aluno);
+	}
+	
+	public void configurarOrdem(String atributo) {
+		if(atributo.equals("NOME")) {
+			this.ordem = new AlunoComparatorNome();
+		}
+		else {
+			if(atributo.equals("MATRICULA")) {
+				this.ordem = new AlunoComparatorMatricula();
+			}
+			else {
+				if(atributo.equals("EMAIL")) {
+					this.ordem = new AlunoComparatorEmail();
+				}
+				else {
+					throw new IllegalArgumentException();
+				}
+			}
+		}
+		
 	}
 
 }

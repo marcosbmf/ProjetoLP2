@@ -276,7 +276,7 @@ public class Sistema implements Serializable {
 
 	public void configurarOrdem(String atributo) {
 		tc.configurarOrdem(atributo);
-		
+		ac.configurarOrdem(atributo);
 	}
 
 }
