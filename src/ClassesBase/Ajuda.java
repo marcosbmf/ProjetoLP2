@@ -118,7 +118,11 @@ public abstract class Ajuda implements Serializable{
 	public boolean getAvaliada() {
 		return this.avaliada;
 	}
-	
+	/**
+	 * Metodo responsavel por verificar se uma string é vazia ou null
+	 * @param texto
+	 * @return boolean afirmando se a string é vazia ou null
+	 */
 	private boolean stringVaziaOuNula(String texto) {
 		if (texto.trim().equals("") || texto == null) {
 			return true;

@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * 
- * @author Marcos Barros 
- * Classe responsavel por representar uma ajuda de modo presencial entre um tutor e um aluno em uma disciplina.
+ * @author Marcos Barros Classe responsavel por representar uma ajuda de modo
+ *         presencial entre um tutor e um aluno em uma disciplina.
  *
  */
 
@@ -47,15 +47,15 @@ public class AjudaPresencial extends Ajuda implements Serializable {
 		} else if (this.stringVaziaOuNula(localInteresse)) {
 			throw new IllegalArgumentException("Erro na criacao de ajuda: local nao pode ser vazio ou nulo");
 		}
-		
+
 		this.horario = horario;
 		this.dia = dia;
 		this.localInteresse = localInteresse;
 	}
 
 	/**
-	 * Metodo responsï¿½vel por devolver no formato String a informaï¿½ï¿½o sobre a ajuda
-	 * desejada pelo sistema.
+	 * Metodo responsï¿½vel por devolver no formato String a informaï¿½ï¿½o sobre a
+	 * ajuda desejada pelo sistema.
 	 */
 	@Override
 	public String getInfoAjuda(String atributo) {
@@ -85,12 +85,18 @@ public class AjudaPresencial extends Ajuda implements Serializable {
 		return "Tutor - " + this.tutor.getMatricula() + ", horario - " + this.horario + ", dia - " + this.dia
 				+ ", local - " + this.localInteresse + ", disciplina - " + this.disciplina;
 	}
-	
+
+	/**
+	 * Metodo responsavel por verificar se a String é vazia ou null para fins de
+	 * validacao.
+	 * @param texto
+	 * @return Boolean afirmando se a string é vazia ou null
+	 */
 	private boolean stringVaziaOuNula(String texto) {
 		if (texto.trim().equals("") || texto == null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 }

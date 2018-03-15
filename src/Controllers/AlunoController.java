@@ -58,8 +58,8 @@ public class AlunoController implements Serializable {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se o email fornecido eh valido no
-	 * formato XXXXX.XXXXX@#########
+	 * Metodo responsavel por verificar se o email fornecido eh valido no formato
+	 * XXXXX.XXXXX@#########
 	 * 
 	 * @param email
 	 * @return Boolean afirmando a se o email fornecido eh valido
@@ -94,8 +94,7 @@ public class AlunoController implements Serializable {
 	}
 
 	/**
-	 * Metodo responsavel por recuperar um aluno por meio da matricula na
-	 * colecaoo.
+	 * Metodo responsavel por recuperar um aluno por meio da matricula na colecaoo.
 	 * 
 	 * @param matricula
 	 * @return Representacao em String de um determinado aluno por meio de sua
@@ -185,6 +184,12 @@ public class AlunoController implements Serializable {
 		this.alunos.put(matricula, aluno);
 	}
 
+	/**
+	 * Metodo responsável por configurar a ordem de listagem dos Alunos baseado em
+	 * um determinado atributo. Nome , matricula , email 
+	 * 
+	 * @param atributo
+	 */
 	public void configurarOrdem(String atributo) {
 		if (atributo.equals("NOME")) {
 			this.ordem = new AlunoComparatorNome();
@@ -201,7 +206,9 @@ public class AlunoController implements Serializable {
 		}
 
 	}
-
+	/**
+	 * Metodo responsavel por tornar o objeto ordem null.
+	 */
 	public void limparOrdem() {
 		this.ordem = null;
 	}
