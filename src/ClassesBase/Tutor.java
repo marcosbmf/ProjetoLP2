@@ -26,8 +26,6 @@ public class Tutor implements Comparable<Tutor>, Serializable {
 	private String nivel;
 	private int dinheiro;
 
-
-
 	/**
 	 * Constro� um tutor a partir do nome, da matricula, do c�digo do curso, do
 	 * telefone dele, do seu email, e da sua nota de avalia�ao, a disciplina que
@@ -42,7 +40,7 @@ public class Tutor implements Comparable<Tutor>, Serializable {
 	 * @param notaAvaliacao
 	 * @param disciplina
 	 * @param proficiencia
-	 * @param idCriacao 
+	 * @param idCriacao
 	 * 
 	 */
 	public Tutor(Aluno aluno, String disciplina, int proficiencia, int idCriacao) {
@@ -164,32 +162,64 @@ public class Tutor implements Comparable<Tutor>, Serializable {
 		return this.agenda.consultaLocal(local);
 	}
 
+	/**
+	 * Metodo responsavel por retornar o nome do tutor.
+	 * 
+	 * @return O nome do aluno .
+	 */
 	public String getNome() {
 		return this.aluno.getNome();
 	}
 
+	/**
+	 * Metodo responsavel por retornar o email do tutor.
+	 * 
+	 * @return O email do aluno no formato xxxx@xxx.com
+	 */
 	public String getEmail() {
 		return this.aluno.geteMail();
 	}
 
+	/**
+	 * Metodo compareTo , responsavel por realizar a comparacao entre um tutor e
+	 * outro com base no nome.
+	 */
 	@Override
 	public int compareTo(Tutor o) {
 		return this.getNome().compareTo(o.getNome());
 
 	}
 
+	/**
+	 * Metodo responsavel por retornar uma representacao em String do tutor
+	 * 
+	 * @return Representacao em String do tutor
+	 */
 	public String toString() {
 		return this.aluno.toString();
 	}
 
+	/**
+	 * Metodo responsavel por retornar o identificador do tutor
+	 * 
+	 * @return inteiro representado o identificador unico do tutor .
+	 */
 	public int getIdCriacao() {
 		return this.idCriacao;
 	}
 
+	/**
+	 * Metodo responsavel por retornar a matricula do tutor
+	 * 
+	 * @return String com a matricula do tutor
+	 */
 	public String getMatricula() {
 		return this.aluno.getMatricula();
 	}
 
+	/**
+	 * Metodo responsavel por calcular o nivel do tutor baseado na nota de avalicao
+	 */
 	private void setNivel() {
 		if (this.notaAvaliacao > 4.5) {
 			this.nivel = "TOP";
@@ -204,15 +234,31 @@ public class Tutor implements Comparable<Tutor>, Serializable {
 		}
 	}
 
+	/**
+	 * Metodo responsavel por retornar uma string com o nivel do tutor
+	 * 
+	 * @return String com o nivel do tutor .
+	 */
 	public String getNivel() {
 		this.setNivel();
 		return this.nivel;
 	}
-	
+
+	/**
+	 * Metodo responsavel por retornar um double com a quantidade de dinheiro do
+	 * tutor
+	 * 
+	 * @return Double com a quantidade de dinheiro associada ao tutor
+	 */
 	public double getDinheiro() {
 		return dinheiro;
 	}
 
+	/**
+	 * Metodo responsavel por setar o dinheiro de um determinado tutor .
+	 * 
+	 * @param dinheiro
+	 */
 	public void setDinheiro(double dinheiro) {
 		this.dinheiro += (int) dinheiro;
 	}

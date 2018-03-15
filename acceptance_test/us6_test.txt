@@ -21,8 +21,7 @@ avaliarTutor idAjuda=14 nota=0
 doar matriculaTutor="115212345" totalCentavos=100
 expect 117 totalDinheiroTutor emailTutor="uesle_han@ccc.ufcg.edu.br"
 
-salvarSistema
-carregarSistema
+
 
 # Testes com exception
 
